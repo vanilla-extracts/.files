@@ -19,6 +19,8 @@
   //Post-scriptum
   ps: none,
 
+  display_ps: true,
+
   lang: "en",
 
   // The letter's content.
@@ -72,6 +74,10 @@
   }
   if ps != none {
     v(1.25cm)
-    emph([PS: #ps])
+    if display_ps {
+      emph([PS: #ps])
+    }else{
+      emph(ps)
+    }
   }
 }

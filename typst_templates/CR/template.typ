@@ -13,10 +13,12 @@
   }
   set text(weight: "regular", size: 12pt)
   set align(left)
+  if presents != none {
   [
     *Présent.e.s*\
     #list(..presents)
   ]
+  }
 
 show heading.where(level: 1): it => block(width:100%)[
   #set align(right)

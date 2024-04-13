@@ -25,6 +25,11 @@ require("lazy").setup(
             }
         },
         {
+            "pmizio/typescript-tools.nvim",
+            dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+            opts = {},
+        },
+        {
             "LazyVim/LazyVim"
         },
         {
@@ -38,6 +43,7 @@ require("lazy").setup(
                 require("nvim-tree").setup {}
             end
         },
+        'koraa/proverif.vim',
         {
             "romgrk/barbar.nvim",
             dependencies = {

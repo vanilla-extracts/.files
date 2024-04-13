@@ -9,7 +9,7 @@ fish_ssh_agent
 ssh-add /home/charlotte/.ssh/id_github
 ssh-add /home/charlotte/.ssh/id_github_rennes
 set TYPST /home/charlotte/.config/typst_templates
-set PATH $PATH:/home/charlotte/.cargo/bin:/home/charlotte/.local/bin:/usr/sbin:/opt/node/bin
+set PATH $PATH:/home/charlotte/.cargo/bin:/home/charlotte/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/
 set TYPST_FONT_PATH /usr/share/fonts
 set EDITOR nvim
 set VISUAL nvim

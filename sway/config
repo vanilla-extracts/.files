@@ -193,7 +193,7 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+s reboot
 
 exec_always setwall set ~/Pictures/bg.png -c sway
-
+exec_always /usr/lib/x86_64-linux-gnu/libexec/kdeconnectd 
 #gaps
 gaps inner 10
 gaps outer 0
