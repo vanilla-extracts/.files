@@ -9,7 +9,9 @@
 !i3blocks/i3blocks.conf
 !nvim
 !nvim/*
-!kitty/kitty.conf
+!nvim/lua/
+!nvim/lua/*
+!kitty/*
 !neofetch
 !neofetch/*
 !typst_template
