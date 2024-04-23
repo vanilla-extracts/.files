@@ -76,11 +76,6 @@ local servers = {
     html = {},
     clangd = {},
     typst_lsp = {exportPdf = "never"},
-    ocamllsp = {
-        cmd = {"ocamllsp"},
-        filetypes = {"ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune"},
-        on_attach = on_attach
-    },
     lua_ls = {
         Lua = {
             workspace = {checkThirdParty = false},
@@ -91,7 +86,7 @@ local servers = {
 
 -- Setup neovim lua configuration
 require("neodev").setup()
-
+require'lspconfig'.ocamllsp.setup{}
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
