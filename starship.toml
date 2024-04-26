@@ -9,15 +9,9 @@ $git_branch\
 $git_status\
 [](fg:#FCA17D bg:#86BBD8)\
 $c\
-$elixir\
-$elm\
 $golang\
-$gradle\
 $haskell\
 $java\
-$julia\
-$nodejs\
-$nim\
 $rust\
 $ocaml\
 $typst\
@@ -81,21 +75,6 @@ symbol = " "
 style = "bg:#86BBD8 fg:000000"
 format = '[ $symbol ($version) ]($style)'
 
-[docker_context]
-symbol = " "
-style = "bg:#06969A fg:000000"
-format = '[ $symbol $context ]($style) $path'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
 [git_branch]
 symbol = ""
 style = "bg:#FCA17D fg:000000"
@@ -110,9 +89,6 @@ symbol = " "
 style = "bg:#86BBD8 fg:000000"
 format = '[ $symbol ($version) ]($style)'
 
-[gradle]
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
 
 [haskell]
 symbol = " "
@@ -124,10 +100,6 @@ symbol = " "
 style = "bg:#86BBD8 fg:000000"
 format = '[ $symbol ($version) ]($style)'
 
-[julia]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
 
 [ocaml]
 style = "bg:#86BBD8 fg:000000"
@@ -136,25 +108,10 @@ format = '[ $symbol ($version) ]($style)'
 [typst]
 symbol = "𝐭"
 style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol gay-($version) ]($style)'
-
-[nodejs]
-symbol = ""
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[nim]
-symbol = "󰆥 "
-style = "bg:#86BBD8 fg:000000"
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
 symbol = ""
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[scala]
-symbol = " "
 style = "bg:#86BBD8 fg:000000"
 format = '[ $symbol ($version) ]($style)'
 
