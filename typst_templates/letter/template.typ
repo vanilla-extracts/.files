@@ -1,3 +1,4 @@
+
 // This function gets your whole document as its `body`
 // and formats it as a simple letter.
 #let letter(
