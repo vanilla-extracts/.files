@@ -15,7 +15,7 @@ set EDITOR nvim
 set VISUAL nvim
 starship init fish | source
 alias ls="eza -l --icons=always --group-directories-first --hyperlink --git --git-repos-no-status"
-
+alias listen="lsof -i -P -n | grep LISTEN"
 # pnpm
 set -gx PNPM_HOME "/home/charlotte/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
