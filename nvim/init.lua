@@ -230,6 +230,5 @@ require("telescope_config")
 require("tree_config")
 require("lsp_config_file")
 require("cat_config")
-require("config_ocaml")
 
 vim.cmd.colorscheme "catppuccin"
