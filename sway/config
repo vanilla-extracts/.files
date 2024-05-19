@@ -38,7 +38,7 @@ bindswitch lid:on exec cool_swaylock
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 exec --no-startup-id /usr/lib/kdeconnectd
-exec --no-startup-id swayidle -w timeout 60 cool_swaylock
+exec --no-startup-id swayidle -w timeout 600 cool_swaylock
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
