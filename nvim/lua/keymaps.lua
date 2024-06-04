@@ -19,6 +19,8 @@ vim.keymap.set("n", "<C-a>", "<Cmd>NvimTreeToggle<CR>")
 -- [[ Highlight on yank ]]
 vim.keymap.set("n", "<C-b>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-o>", "<Cmd>BufferClose<CR>")
+vim.keymap.set("n", "<C-i>", "<Cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>")
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
 vim.api.nvim_create_autocmd(
