@@ -19,7 +19,7 @@
 
   //Post-scriptum
   ps: none,
-
+  politesse: none,
   display_ps: true,
 
   lang: "en",
@@ -69,6 +69,8 @@
   // Add body and name.
   body
   v(1.25cm)
+  politesse
+  v(0.1cm)
   name
   if signature != none {
     signature

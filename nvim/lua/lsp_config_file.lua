@@ -72,7 +72,7 @@ local servers = {
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
     tsserver = {},
-    pylyzer = {},
+    pyright = {},
     html = {},
     clangd = {},
     typst_lsp = {exportPdf = "never"},
