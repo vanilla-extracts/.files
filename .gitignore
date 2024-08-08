@@ -1,4 +1,6 @@
 *
+!report
+!reporter
 !.tmux
 !.tmux/*
 !.gitignore

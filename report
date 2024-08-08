@@ -1,0 +1,8 @@
+#!/usr/bin/python3
+with open("/home/charlotte/report.html","a") as file:
+    while True:
+        line = input(">> ")
+        if line == "exit":
+            break
+        else: file.write(line + "\n")
+        
