@@ -12,6 +12,8 @@ ssh-add /home/charlotte/.ssh/id_gitlab_inria
 set TYPST /home/charlotte/.config/typst_templates
 set PATH $PATH:/home/charlotte/.cargo/bin:/home/charlotte/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/
 set TYPST_FONT_PATH /usr/share/fonts
+set EDITOR vim
+set VISUAL vim
 starship init fish | source
 alias ls="eza -l --icons=always --group-directories-first --hyperlink --git --git-repos-no-status"
 alias listen="lsof -i -P -n | grep LISTEN"
