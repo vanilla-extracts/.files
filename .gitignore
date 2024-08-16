@@ -3,6 +3,8 @@
 !reporter
 !.tmux
 !.tmux/*
+!waybar
+!waybar/*
 !.gitignore
 !fish/config.fish
 !i3blocks/config
