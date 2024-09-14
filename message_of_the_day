@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+import os 
+from colorama import Fore, Style, init
+from datetime import datetime
+from urllib.request import urlopen
+import re as r
+import socket 
+def getIP():
+    
+    try: 
+        d = str(urlopen('http://checkip.dyndns.com/').read())
+        return (True,r.compile(r'Address: (\d+\.\d+\.\d+\.\d+)').search(d).group(1))
+    except: 
+        return (False,"You are not on the internet")
+(connection,ip) = getIP() 
+localip = "0"
+try: 
+    localip = socket.gethostbyname(socket.gethostname())
+except: 
+    pass 
+init()
+user = os.environ['USER']
+print(f"{Fore.LIGHTMAGENTA_EX}#"*50)
+print(f"{Fore.LIGHTGREEN_EX}Hello {Fore.CYAN}{Style.BRIGHT}{user}{Style.RESET_ALL}")
+print(f"{Fore.LIGHTGREEN_EX}The date is {Fore.CYAN}{Style.BRIGHT}{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}{Style.RESET_ALL}")
+if not connection:
+    print(f"{Fore.LIGHTRED_EX}You are not connected to a WAN network{Style.RESET_ALL}")
+    if not localip.startswith("127") :
+        print(f"{Fore.LIGHTGREEN_EX}Local IP: {Fore.CYAN}{Style.BRIGHT}{localip}{Style.RESET_ALL}")
+    else:
+        print(f"{Fore.LIGHTRED_EX}You are not connected to a LAN network{Style.RESET_ALL}")
+else:
+    print(f"{Fore.LIGHTGREEN_EX}IP: {Fore.CYAN}{Style.BRIGHT}{ip}{Style.RESET_ALL}")
+    print(f"{Fore.LIGHTGREEN_EX}Local IP: {Fore.CYAN}{Style.BRIGHT}{localip}{Style.RESET_ALL}")
+print(f"{Fore.LIGHTGREEN_EX}Weather: {Fore.CYAN}{Style.BRIGHT}Open your damn windows {user}{Style.RESET_ALL}")
+print(f"{Fore.LIGHTGREEN_EX}Temperature: {Fore.CYAN}{Style.BRIGHT}TOUCH GRASS {Fore.YELLOW}{user.upper()}{Style.RESET_ALL}")
+print(f"{Fore.LIGHTGREEN_EX}Luminosity: {Fore.RED}{Style.BRIGHT}JUST OPEN YOUR EYES {user.upper()}")
+print(f"{Fore.LIGHTMAGENTA_EX}#"*50)
