@@ -75,7 +75,7 @@ local servers = {
     pyright = {},
     html = {},
     clangd = {},
-    typst_lsp = {exportPdf = "never"},
+    tinymist = {},
     lua_ls = {
         Lua = {
             workspace = {checkThirdParty = false},
