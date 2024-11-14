@@ -129,5 +129,13 @@ require("telescope").setup {
                 ["<C-d>"] = false
             }
         }
+    },
+    extensions = {
+        file_browser = {
+            theme = "ivy",
+        }
     }
 }
+
+
+require("telescope").load_extension "file_browser"

@@ -30,7 +30,7 @@ require("lazy").setup(
             "startup-nvim/startup.nvim",
             dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
             config = function()
-                require "startup".setup()
+                require "startup".setup(require "themes.mytheme")
             end
         },
         {
@@ -40,6 +40,10 @@ require("lazy").setup(
         },
         {
             "LazyVim/LazyVim"
+        },
+        {
+            "nvim-telescope/telescope-file-browser.nvim",
+            dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
         },
         {
             "nvim-tree/nvim-tree.lua",
