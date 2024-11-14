@@ -27,6 +27,13 @@ require("lazy").setup(
             }
         },
         {
+            "startup-nvim/startup.nvim",
+            dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+            config = function()
+                require "startup".setup()
+            end
+        },
+        {
             "pmizio/typescript-tools.nvim",
             dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
             opts = {},
@@ -252,7 +259,6 @@ require("lazy").setup(
             },
             build = ":TSUpdate"
         },
-        {import = "lazyvim.plugins.extras.ui.mini-starter"}
     },
     {}
 )

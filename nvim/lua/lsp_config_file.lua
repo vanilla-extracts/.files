@@ -75,7 +75,11 @@ local servers = {
     pyright = {},
     html = {},
     clangd = {},
-    tinymist = {},
+    tinymist = {
+        offset_encoding = "utf-8",
+        semanticToken = "disable",
+        exportPdf = "never",
+    },
     lua_ls = {
         Lua = {
             workspace = {checkThirdParty = false},
