@@ -2,6 +2,14 @@ function fish_greeting
   message_of_the_day
 end
 
+for mode in default insert
+  bind --mode $mode \cf tmux-sessionizer
+end 
+fish_vi_key_bindings
+set fish_cursor_default block
+set fish_cursor_insert line
+set fish_cursor_replace_one underscore
+set fish_cursor_visual block
 
 setsid wal -i ~/Images/bg.png 2> /dev/null
 ssh-add /home/charlotte/.ssh/id_github_me
@@ -10,6 +18,7 @@ set PATH $PATH:/home/charlotte/.cargo/bin:/home/charlotte/.local/bin:/usr/sbin:/
 set TYPST_FONT_PATH /usr/share/fonts:/home/charlotte/.fonts
 set EDITOR vim
 set VISUAL vim
+set CODE_EDITOR nvim
 starship init fish | source
 alias ls="eza -l --icons=always --group-directories-first --hyperlink"
 alias listen="lsof -i -P -n | grep LISTEN"
