@@ -1,0 +1,15 @@
+[window]
+opacity = 0.9
+blur = true 
+title = "Terminal"
+dynamic_title = true
+
+[font]
+normal = {family = "Monaspace Xenon", style = "Regular"}
+size = 12
+
+[cursor]
+style = {shape = "Underline", blinking="Never"}
+
+[mouse]
+hide_when_typing = true
