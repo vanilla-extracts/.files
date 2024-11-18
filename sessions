@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+if [ "$(command -v zellij)" = "" ]; then
+    echo "Zellij is not installed"
+    exit 1
+fi
+
+home_replacer() {
+    HOME_REPLACER=""                                          # default to a noop
+    echo "$HOME" | grep -E "^[a-zA-Z0-9\-_/.@]+$" &>/dev/null # chars safe to use in sed
+    HOME_SED_SAFE=$?
+    if [ $HOME_SED_SAFE -eq 0 ]; then # $HOME should be safe to use in sed
+        HOME_REPLACER="s|^$HOME/|~/|"
+    fi
+    echo "$HOME_REPLACER"
+}
+
+transform_home_path() {
+    HOME_SED_SAFE=$?
+    if [ $HOME_SED_SAFE -eq 0 ]; then
+        echo "$1" | sed -e "s|^~/|$HOME/|"
+    else
+        echo "$1"
+    fi
+}
+
+fzf_window() {
+	fzf --reverse --no-sort --border "rounded" --info inline --pointer "→" --prompt "Session > " --header "Select session" --preview "echo {2} | grep -q 'Session' && echo {} || ls {3}"
+}
+
+sessions_list(){
+    zellij list-sessions -s | awk '{ print "("NR")\t[Session]\t"$1 }'
+}
+
+project_list(){
+	list=$(fd --full-path '/home/charlotte/Documents/dev/' --maxdepth 3 --type directory)
+	list1=$(fd --full-path '/home/charlotte/Documents/docsoff/' --maxdepth 3 --type directory)
+	list="$(realpath ~/.config) ${list}"
+    echo "$list $list1" | tr --truncate-set1 " /" "\n" | awk '{ print "("NR")\t[Directory]\t"$1 }' 
+}
+
+select_project() {
+    project_dir=$({ sessions_list; project_list; } | fzf_window)
+    if [ "$project_dir" = "" ]; then
+        exit
+    fi
+	echo "$project_dir"
+}
+
+get_sanitized_selected(){
+	echo "$1" | sed "s/^([0-9]*)\t\[[^]]*\]\t//"
+}
+
+get_session_name() {
+    project_dir=$1
+    directory=$(basename "$project_dir")
+    session_name=$(echo "$directory" | tr ' .:' '_')
+    echo "$session_name"
+}
+
+if [[ -n "$1" ]]; then
+	selected=$(realpath $1)
+else
+	selected=$(select_project)
+fi
+
+if [ -z "$selected" ]; then
+	exit 0
+fi
+
+cwd=$(get_sanitized_selected "$selected")
+session_name=$(get_session_name "$(transform_home_path "$cwd")")
+session=$(zellij list-sessions | grep "$session_name")
+is_current_session=$(zellij list-sessions -n | grep "^$session_name \[Created" | grep "(current)")
+
+# If we're inside of zellij, detach
+if [[ -n "$ZELLIJ" ]]; then
+    if [[ -z "$is_current_session" ]]; then
+	    zellij pipe --plugin file:~/.config/zellij/plugins/zellij-switch.wasm -- "$session_name::$cwd"
+    fi
+else
+	if [[ -n "$session" ]]; then
+		zellij attach $session_name -c
+	else
+		zellij attach $session_name -c options --default-cwd $cwd
+	fi
+fi
