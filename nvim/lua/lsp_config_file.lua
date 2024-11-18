@@ -71,9 +71,9 @@ local servers = {
     -- rust_analyzer = {},
     -- tsserver = {},
     -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-    tsserver = {},
     pyright = {},
     html = {},
+    cssls = {},
     clangd = {},
     tinymist = {
         offset_encoding = "utf-8",

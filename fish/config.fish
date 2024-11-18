@@ -3,7 +3,7 @@ function fish_greeting
 end
 
 for mode in default insert
-  bind --mode $mode \cf tmux-sessionizer
+  bind --mode $mode \cf sessions 
 end 
 fish_vi_key_bindings
 set fish_cursor_default block
