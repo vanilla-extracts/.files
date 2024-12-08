@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+cp -r /home/charlotte/Documents/docsoff /home/charlotte/usb/.
+cp -r /home/charlotte/Documents/dev /home/charlotte/usb/.
+echo "backup done at $(date +\"%Y-%m-%d %H-%M-%S\")" >> /home/charlotte/.nas_backup.log

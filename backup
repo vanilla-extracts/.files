@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+mkdir -p /home/charlotte/usb/password
+cp /home/charlotte/Documents/docsoff/password/Passwords.kdbx /home/charlotte/usb/password/.
+echo "Passwords saved $(date +\"%Y-%m-%d %H:%M:%S\")" >> /home/charlotte/.passwords.log
