@@ -192,6 +192,8 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Shift+s reboot
 # Notification Daemon
 exec swaync
+exec keepassxc
+exec syncthing
 bindsym $mod+Shift+p exec sway-screenshot -m region --clipboard-only
 # Toggle control center
 bindsym $mod+Shift+n exec swaync-client -t -sw
