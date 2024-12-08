@@ -1,0 +1,32 @@
+#!/usr/bin/bash
+
+clean() {
+	(
+		echo "$d"
+		cd "$d"
+		cwd=$PWD
+		rm -rf target/ 2> /dev/null
+		cargo clean 2> /dev/null 
+	)
+}
+
+directory_clean() {
+	for d in */ ; do
+		clean
+	done
+}
+
+(
+	cd /home/charlotte/Documents/dev
+	directory_clean
+)
+
+(
+	cd /home/charlotte/Documents/dev/website
+	directory_clean
+)
+
+(
+	cd /home/charlotte/Documents/dev/writing-website
+	directory_clean
+)
