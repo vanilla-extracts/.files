@@ -28,3 +28,4 @@
 !backup_password
 !backup_to_nas
 !clean_dev
+!check_and_backup_nas

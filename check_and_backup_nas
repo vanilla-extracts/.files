@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+we=$(LC_TIME=C date +%A)
+if [ "$we" = "Monday" ] 
+then 
+	backup_nas
+else
+	echo "Oh no!"
+fi
