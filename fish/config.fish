@@ -16,6 +16,7 @@ ssh-add /home/charlotte/.ssh/id_github_me
 set TYPST /home/charlotte/.config/typst_templates
 set PATH $PATH:/home/charlotte/.cargo/bin:/home/charlotte/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/
 set TYPST_FONT_PATH /usr/share/fonts:/home/charlotte/.fonts
+set DOCSOFF /home/charlotte/Documents/docsoff
 set EDITOR vim
 set VISUAL vim
 set CODE_EDITOR nvim

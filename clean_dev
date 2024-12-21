@@ -7,6 +7,11 @@ clean() {
 		cwd=$PWD
 		rm -rf target/ 2> /dev/null
 		cargo clean 2> /dev/null 
+		(
+			cd "builder/js" 2> /dev/null
+			cwd=$PWD
+			rm -rf node_modules 2> /dev/null
+		)
 	)
 }
 
