@@ -7,7 +7,7 @@ set -o pipefail
 
 readonly SOURCE_DIR_DEV="${HOME}/Documents/dev"
 readonly SOURCE_DIR_DOCSOFF="${HOME}/Documents/docsoff"
-readonly BACKUP_DIR="${HOME}/usb/"
+readonly BACKUP_DIR="${HOME}/usb"
 readonly DATETIME="$(date +%Y-%m-%d_%H:%M:%S)"
 readonly BACKUP_PATH_DEV="${BACKUP_DIR}/dev/${DATETIME}"
 readonly LATEST_LINK_DEV="${BACKUP_DIR}/dev/latest"
@@ -15,13 +15,15 @@ readonly BACKUP_PATH_DOCSOFF="${BACKUP_DIR}/docsoff/${DATETIME}"
 readonly LATEST_LINK_DOCSOFF="${BACKUP_DIR}/docsoff/latest"
 
 mkdir -p "${BACKUP_DIR}"
+mkdir -p "${BACKUP_PATH_DOCSOFF}"
+mkdir -p "${BACKUP_PATH_DEV}"
 
 echo "Starting backup of ${SOURCE_DIR_DEV} to ${BACKUP_PATH_DEV}"
 
-rsync -av --delete \
+rsync -avz --delete \
 	"${SOURCE_DIR_DEV}/" \
-	--link-dest "${LATEST_LINK_DEV}"
-	--exclude=".*/" \
+	--link-dest "${LATEST_LINK_DEV}" \
+	--exclude='.git/' \
 	"${BACKUP_PATH_DEV}"
 
 rm -rf "${LATEST_LINK_DEV}"
@@ -31,12 +33,12 @@ echo "Starting backup of ${SOURCE_DIR_DOCSOFF} to ${BACKUP_PATH_DOCSOFF}"
 
 rsync -av --delete \
 	"${SOURCE_DIR_DOCSOFF}/" \
-	--link-dest "${LATEST_LINK_DOCSOFF}"
-	--excludde=".*/" \
+	--link-dest "${LATEST_LINK_DOCSOFF}" \
+	--exclude='.git/' \
 	"${BACKUP_PATH_DOCSOFF}"
 
 rm -rf "${LATEST_LINK_DOCSOFF}"
-ln -s "${BACKUP_PATH_DOCSOFF}" "${LATEST_LINK_DOSCOFF}"
+ln -s "${BACKUP_PATH_DOCSOFF}" "${LATEST_LINK_DOCSOFF}"
 
 echo "Backup finished for ${DATETIME}"
 echo "backup done at $(date +%Y-%m-%d#%H:%M)" >> /home/charlotte/.nas_backup.log
