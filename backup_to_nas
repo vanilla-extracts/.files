@@ -41,4 +41,3 @@ rm -rf "${LATEST_LINK_DOCSOFF}"
 ln -s "${BACKUP_PATH_DOCSOFF}" "${LATEST_LINK_DOCSOFF}"
 
 echo "Backup finished for ${DATETIME}"
-echo "backup done at $(date +%Y-%m-%d#%H:%M)" >> /home/charlotte/.nas_backup.log
