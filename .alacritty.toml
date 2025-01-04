@@ -6,7 +6,7 @@ dynamic_title = true
 
 [font]
 normal = {family = "Monaspace Xenon", style = "Regular"}
-size = 12
+size = 9
 
 [cursor]
 style = {shape = "Underline", blinking="Never"}

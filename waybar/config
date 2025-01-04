@@ -1,8 +1,9 @@
 {
-  "layer": "bottom", "position": "top",
-  "modules-left": ["custom/logo", "clock", "disk", "memory", "cpu", "temperature" ],
-  "modules-center": [  "sway/workspaces"],
-  "modules-right": ["tray",  "backlight", "idle_inhibitor", "bluetooth", "pulseaudio", "network",  "battery" ],
+  "layer": "bottom", 
+  "position": "top",
+  "modules-left": ["custom/logo", "clock", "hyprland/workspaces" ],
+  "modules-center": [ "hyprland/window" ],
+  "modules-right": ["tray", "backlight", "bluetooth", "network",  "battery"],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -13,41 +14,16 @@
   "hyprland/workspaces": {
 	"format": "{icon}",
 	"format-icons": {
-		"1": "",
-		"2": "",
-		"3": "",
-		"4": "",
-		"5": "",
-		"6": "",
-		"active": "",
-		"default": "" 
+		"1": " ",
+		"2": " ",
+		"3": " ",
+		"4": " ",
+		"5": " ",
+		"6": " ",
+		"active": " ",
+		"default": " "  
 	},
-       "persistent-workspaces": {
-         "*": [ 2, 3, 4, 5, 6 ]
-       }
-},
-
-"idle_inhibitor":{
-  "format": "<span font='12'>{icon} </span>",
-  "format-icons": {
-    "activated":"󰈈",
-    "deactivated":"󰈉"
-  }
-},
-
-"custom/weather": {
-  "format": "{}",
-  "return-type": "json",
-  "exec": "~/.config/waybar/scripts/weather.sh",
-  "interval": 10,
-  "on-click": "firefox https://wttr.in"
-},
-
-"custom/clipboard":{
-  "format":"",
-  "on-click": "cliphist list | rofi -dmenu | cliphist decode | wl-copy",
-  "interval":86400
-},
+  },
 
 
 "clock": {
@@ -91,9 +67,10 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{capacity}%  {icon} ",
-        "format-charging": "{capacity}% 󰂄 ",
-        "format-plugged": "{capacity}% 󰂄 ",
+        "format": "{icon} ",
+        "tooltip-format": "{capacity}%",
+	"format-charging": "󰂄",
+        "format-plugged": "󰂄 ",
         "format-alt": "{time} {icon}",
             "format-icons": [
           "󰁻",
@@ -106,7 +83,8 @@
     },
 "backlight": {
   "device": "intel_backlight",
-  "format": "{percent}% {icon}",
+  "format": "{icon}",
+  "tooltip-format": "{percent}% {icon}",
   "format-icons": [
     "",
     "",
@@ -131,11 +109,11 @@
   },
 
   "custom/colorpicker": {
-    "format": "{}",
-    "return-type": "json",
+    "format": "C []",
+    "return-type": "text",
     "interval": "once",
-    "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
-    "on-click": "sleep 1 && ~/.config/waybar/scripts/colorpicker.sh",
+    "exec": "",
+    "on-click": "sleep 1 && hyprpicker -a",
     "signal": 1
   },
 
@@ -152,10 +130,10 @@
 },
 
  "hyprland/window": {
-    "format": "( {class} )",
+    "format": "<span font='9' rise='-4444'>{}</span>",  
     "rewrite": {
-         "(.*) - Mozilla Firefox": "🌎 $1",
-         "(.*) - zsh": "> [$1]"
+         "(.*)Mozilla Firefox": "🌎 $1",
+         "(.*)fish": "> [$1]"
     }
 },
 
@@ -214,4 +192,4 @@
   }
 
 }
-
+}

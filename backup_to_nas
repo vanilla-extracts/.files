@@ -5,39 +5,22 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-readonly SOURCE_DIR_DEV="${HOME}/Documents/dev"
-readonly SOURCE_DIR_DOCSOFF="${HOME}/Documents/docsoff"
-readonly BACKUP_DIR="${HOME}/usb"
+readonly BACKUP_DIR="/home/charlotte/usb/backups"
 readonly DATETIME="$(date +%Y-%m-%d_%H:%M:%S)"
-readonly BACKUP_PATH_DEV="${BACKUP_DIR}/dev/${DATETIME}"
-readonly LATEST_LINK_DEV="${BACKUP_DIR}/dev/latest"
-readonly BACKUP_PATH_DOCSOFF="${BACKUP_DIR}/docsoff/${DATETIME}"
-readonly LATEST_LINK_DOCSOFF="${BACKUP_DIR}/docsoff/latest"
+readonly SOURCE_DIR="/"
+readonly BACKUP_PATH="${BACKUP_DIR}/${DATETIME}"
+readonly LATEST_LINK="${BACKUP_DIR}/latest"
 
 mkdir -p "${BACKUP_DIR}"
-mkdir -p "${BACKUP_PATH_DOCSOFF}"
-mkdir -p "${BACKUP_PATH_DEV}"
+mkdir -p "${BACKUP_PATH}"
 
-echo "Starting backup of ${SOURCE_DIR_DEV} to ${BACKUP_PATH_DEV}"
+echo "Starting backup of ${SOURCE_DIR} to ${BACKUP_PATH}"
 
 rsync -avz --delete \
-	"${SOURCE_DIR_DEV}/" \
-	--link-dest "${LATEST_LINK_DEV}" \
+	"${SOURCE_DIR}/" \
+	--link-dest "${LATEST_LINK}" \
 	--exclude='.git/' \
-	"${BACKUP_PATH_DEV}"
+	"${BACKUP_PATH}"
 
-rm -rf "${LATEST_LINK_DEV}"
-ln -s "${BACKUP_PATH_DEV}" "${LATEST_LINK_DEV}"
-
-echo "Starting backup of ${SOURCE_DIR_DOCSOFF} to ${BACKUP_PATH_DOCSOFF}"
-
-rsync -av --delete \
-	"${SOURCE_DIR_DOCSOFF}/" \
-	--link-dest "${LATEST_LINK_DOCSOFF}" \
-	--exclude='.git/' \
-	"${BACKUP_PATH_DOCSOFF}"
-
-rm -rf "${LATEST_LINK_DOCSOFF}"
-ln -s "${BACKUP_PATH_DOCSOFF}" "${LATEST_LINK_DOCSOFF}"
-
-echo "Backup finished for ${DATETIME}"
+rm -rf "${LATEST_LINK}"
+ln -s "${BACKUP_PATH}" "${LATEST_LINK}"
