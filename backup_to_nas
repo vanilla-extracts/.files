@@ -7,7 +7,7 @@ set -o pipefail
 
 readonly BACKUP_DIR="/home/charlotte/usb/backups"
 readonly DATETIME="$(date +%Y-%m-%d_%H:%M:%S)"
-readonly SOURCE_DIR="/"
+readonly SOURCE_DIR="/home/charlotte/Documents/"
 readonly BACKUP_PATH="${BACKUP_DIR}/${DATETIME}"
 readonly LATEST_LINK="${BACKUP_DIR}/latest"
 
@@ -16,10 +16,11 @@ mkdir -p "${BACKUP_PATH}"
 
 echo "Starting backup of ${SOURCE_DIR} to ${BACKUP_PATH}"
 
-rsync -avz --delete \
+rsync -avz --progress --delete \
 	"${SOURCE_DIR}/" \
 	--link-dest "${LATEST_LINK}" \
 	--exclude='.git/' \
+	--exclude='.cache/' \
 	"${BACKUP_PATH}"
 
 rm -rf "${LATEST_LINK}"
