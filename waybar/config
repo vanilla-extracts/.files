@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["custom/logo", "clock", "hyprland/workspaces" ],
   "modules-center": [ "hyprland/window" ],
-  "modules-right": ["tray", "backlight", "bluetooth", "network",  "battery"],
+  "modules-right": ["tray", "backlight", "bluetooth", "pulseaudio", "network",  "battery"],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -146,7 +146,7 @@
  },
 
 "pulseaudio": {
-  "format": "{volume}% {icon}",
+  "format": "{icon}",
   "format-bluetooth":"󰂰",
   "format-muted": "<span font='12'></span>",
   "format-icons": {
@@ -162,7 +162,7 @@
   "justify": "center",
   "on-click": "amixer sset Master toggle",
   "on-click-right": "pavucontrol",
-  "tooltip-format": "{icon}  {volume}%"
+  "tooltip-format": "{volume}%"
 },
 
 "jack": {
