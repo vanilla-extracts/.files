@@ -25,3 +25,4 @@
 !backup_to_nas_revamped
 !clean_dev
 !check_and_backup_nas
+!launch_docker_language_tool
