@@ -1,122 +1,217 @@
-format ="""
-[◆](#9A348E)\
-$os\
+# version: 1.0.0
+
+add_newline = true
+continuation_prompt = "[▸▹ ](dimmed white)"
+
+format = """($git_metrics\n)$cmd_duration\
+$hostname\
+$localip\
+$shlvl\
+$shell\
+$env_var\
+$jobs\
+$sudo\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+$character"""
+
+right_format = """
 $directory\
-[](fg:#DA627D bg:#FCA17D)\
+$fossil_branch\
 $git_branch\
+$git_commit\
+$git_state\
 $git_status\
-[](fg:#FCA17D bg:#86BBD8)\
-$c\
+$hg_branch\
+$pijul_channel\
 $golang\
 $haskell\
 $java\
-$rust\
+$gradle\
+$lua\
 $ocaml\
+$python\
+$rust\
+$scala\
+$terraform\
 $typst\
-$time\
-[ ](fg:#33658A)\
-$cmd_duration\
-$line_break\
-$character
-"""
+$spack\
+$memory_usage\
+$custom\
+$os\
+$battery\
+$time"""
 
-# Disable the blank line at the start of the prompt
-# add_newline = false
+[fill]
+symbol = ' '
 
-# You can also replace your username with a neat symbol like   or disable this
-# and use the os module below
 [character]
-#format = '$symbol($style) '
-#style = 'fg:F7A8D8'
-success_symbol = "[∂³Σx²:](fg:#55CDFC)"
-error_symbol = "[∂³Σx²:](fg:F7A8D8)"
-#format = '[$symbol](fg:#F7A8D8) '
+format = "$symbol "
+success_symbol = "[◎](bold italic bright-yellow)"
+error_symbol = "[○](italic purple)"
+vimcmd_symbol = "[■](italic dimmed green)"
+# not supported in zsh
+vimcmd_replace_one_symbol = "◌"
+vimcmd_replace_symbol = "□"
+vimcmd_visual_symbol = "▼"
 
-[username]
-show_always = true
-style_user = "bg:#9A348E fg:000000"
-style_root = "bg:#9A348E"
-format = '[$user ]($style)'
+[env_var.VIMSHELL]
+format = "[$env_value]($style)"
+style = 'green italic'
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic bright-purple"
+symbol = "⋈┈"
 disabled = false
 
-[cmd_duration]
-#min_time = 1000  # Show command duration over 10,000 milliseconds (=10 sec)
-format = "[󰔚 ](bold yellow)[$duration]($style)"
-
-# An alternative to the username module which displays a symbol that
-# represents the current operating system
-[os]
-style = "bg:#9A348E"
-disabled = true # Disabled by default
+[username]
+style_user = "bright-yellow bold italic"
+style_root = "purple bold italic"
+format = "[⭘ $user]($style) "
+disabled = false
+show_always = false
 
 [directory]
-style = "bg:#DA627D fg:000000"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = "…/"
+home_symbol = "⌂"
+truncation_length = 2
+truncation_symbol = "../"
+read_only = " ◈"
+use_os_path_sep = true
+style = "italic blue"
+format = '[$path]($style)[$read_only]($read_only_style)'
+repo_root_style = 'bold blue'
+repo_root_format = '[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) [△](bold bright-blue)'
 
-# Here is how you can shorten some long paths by text replacement
-# similar to mapped_locations in Oh My Posh:
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
-# Keep in mind that the order matters. For example:
-# "Important Documents" = " 󰈙 "
-# will not be replaced, because "Documents" was already substituted before.
-# So either put "Important Documents" before "Documents" or use the substituted version:
-# "Important 󰈙 " = " 󰈙 "
+[cmd_duration]
+format = "[◄ $duration ](italic cyan)"
 
-[c]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
+[jobs]
+format = "[$symbol$number]($style) "
+style = "white"
+symbol = "[▶](blue italic)"
 
-[git_branch]
-symbol = ""
-style = "bg:#FCA17D fg:000000"
-format = '[ $symbol $branch ]($style)'
-
-[git_status]
-style = "bg:#FCA17D fg:000000"
-format = '[$all_status$ahead_behind ]($style)'
-
-[golang]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-
-[haskell]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[java]
-symbol = " "
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-
-[ocaml]
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[typst]
-symbol = "𝐭"
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
-
-[rust]
-symbol = ""
-style = "bg:#86BBD8 fg:000000"
-format = '[ $symbol ($version) ]($style)'
+[localip]
+ssh_only = true
+format = " ◯[$localipv4](bold magenta)"
+disabled = false
 
 [time]
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#33658A fg:000000"
-format = '[ ♥ $time ]($style)'
+format = "[ $time]($style)"
+time_format = "%R"
+utc_time_offset = "local"
+style = "italic dimmed white"
+
+[battery]
+format = "[ $percentage $symbol]($style)"
+full_symbol = "█"
+charging_symbol = "[↑](italic bold green)"
+discharging_symbol = "↓"
+unknown_symbol = "░"
+empty_symbol = "▃"
+
+[[battery.display]]
+threshold = 20
+style = "italic bold red"
+
+[[battery.display]]
+threshold = 60
+style = "italic dimmed bright-purple"
+
+[[battery.display]]
+threshold = 70
+style = "italic dimmed yellow"
+
+[git_branch]
+format = " [$branch]($style)"
+style = "italic bright-blue"
+truncation_symbol = "⋯"
+truncation_length = 11
+only_attached = true
+
+[git_metrics]
+format = '([▴$added]($added_style))([▿$deleted]($deleted_style))'
+added_style = 'italic dimmed green'
+deleted_style = 'italic dimmed red'
+ignore_submodules = true
+disabled = false
+
+[git_status]
+style = "bold italic bright-blue"
+format = "([⎪$ahead_behind$staged$modified$untracked$renamed$deleted$conflicted$stashed⎥]($style))"
+conflicted = "[◪◦](italic bright-magenta)"
+ahead = "[▴│[${count}](bold white)│](italic green)"
+behind = "[▿│[${count}](bold white)│](italic red)"
+diverged = "[◇ ▴┤[${ahead_count}](regular white)│▿┤[${behind_count}](regular white)│](italic bright-magenta)"
+untracked = "[◌◦](italic bright-yellow)"
+stashed = "[◃◈](italic white)"
+modified = "[●◦](italic yellow)"
+staged = "[▪┤[$count](bold white)│](italic bright-cyan)"
+renamed = "[◎◦](italic bright-blue)"
+deleted = "[✕](italic red)"
+
+
+[lua]
+format = " [lua](italic) [${symbol}${version}]($style)"
+version_format = "${raw}"
+symbol = "⨀ "
+style = "bold bright-yellow"
+
+[python]
+format = " [py](italic) [${symbol}${version}]($style)"
+symbol = "[⌉](bold bright-blue)⌊ "
+version_format = "${raw}"
+style = "bold bright-yellow"
+
+
+[rust]
+format = " [rs](italic cyan) [$symbol$version]($style)"
+symbol = "⊃ "
+version_format = "${raw}"
+style = "bold red"
+
+[package]
+format = " [pkg](italic dimmed) [$symbol$version]($style)"
+version_format = "${raw}"
+symbol = "◨ "
+style = "dimmed yellow italic bold"
+
+[golang]
+symbol = "∩ "
+format = " go [$symbol($version )]($style)"
+
+[haskell]
+symbol = "❯λ "
+format = " hs [$symbol($version )]($style)"
+
+[java]
+symbol = "∪ "
+format = " java [${symbol}(${version} )]($style)"
+
+[julia]
+symbol = "◎ "
+format = " jl [$symbol($version )]($style)"
+
+[typst]
+symbol = "𝐭"
+format = '[ $symbol ($version) ]($style)'
+
+[memory_usage]
+symbol = "▪▫▪ "
+format = " mem [${ram}( ${swap})]($style)"
+
+[nim]
+symbol = "▴▲▴ "
+format = " nim [$symbol($version )]($style)"
+
+[nix_shell]
+style = 'bold italic dimmed blue'
+symbol = '✶'
+format = '[$symbol nix⎪$state⎪]($style) [$name](italic dimmed white)'
+impure_msg = '[⌽](bold dimmed red)'
+pure_msg = '[⌾](bold dimmed green)'
+unknown_msg = '[◌](bold dimmed ellow)'
+
+[spack]
+symbol = "◇ "
+format = " spack [$symbol$environment]($style)"
