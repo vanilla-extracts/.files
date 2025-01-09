@@ -2,7 +2,7 @@
     border: none;
     color: white;
     font-size: 12px;
-    font-family: "JetBrainsMono Nerd Font,JetBrainsMono NF" ;
+    font-family: "Monaspace Radon", "Font Awesome 6 Free", "Font Awesome 6 Brands", "PT Sans";
     min-height: 25px;
 }
 
@@ -19,20 +19,20 @@ window#waybar {
   padding-left: 5px;
   border-radius: 15px 0 0 15px;
   margin-top: 2px;
-  background: #000000;
+  background: #5C1630;
 }
 
 .modules-center {
   padding: 0 15px;
   margin-top: 2px;
   border-radius: 15px 15px 15px 15px;
-  background: #000000;
+  background: #5C1630;
 }
 
 .modules-left {
   border-radius: 0 15px 15px 0;
   margin-top: 2px;
-  background: #000000;
+  background: #5C1630;
 }
 
 #battery,
@@ -62,7 +62,7 @@ window#waybar {
 
 #temperature.critical,
 #pulseaudio.muted {
-  color: #FF0000;
+  color: #3F0004;
   padding-top: 0;
 }
 
@@ -70,7 +70,7 @@ window#waybar {
 
 
 #clock{
-  color: #5fd1fa;
+  color: #ffffff;
 }
 
 #battery.charging {
