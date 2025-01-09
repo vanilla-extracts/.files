@@ -26,3 +26,5 @@
 !clean_dev
 !check_and_backup_nas
 !launch_docker_language_tool
+!wofi/*
+!wofi/
