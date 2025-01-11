@@ -12,6 +12,7 @@ $typst\
 $rust\
 $battery\
 $cmd_duration\
+$sudo\
 $time"""
 
 [fill]
@@ -24,6 +25,12 @@ style = "blue"
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
+
+[sudo]
+format = "[$symbol]($style)"
+style = "bold italic bright-purple"
+symbol = "  "
+disabled = false
 
 [git_branch]
 format = "[$branch]($style)"
@@ -77,7 +84,7 @@ threshold = 60
 style = "italic dimmed bright-purple"
 
 [[battery.display]]
-threshold = 70
+threshold = 80
 style = "italic dimmed yellow"
 
 [time]
