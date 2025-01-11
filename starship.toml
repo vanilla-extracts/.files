@@ -1,174 +1,88 @@
-format = """\
-[╭╴](fg:arrow)\
-$username\
+format = """
+$hostname\
 $directory\
-$time\
-(\
-    $git_branch\
-    $git_status\
-)\
-(\
-    $rust\
-    $typst\
-    $c\
-)\
-$cmd_duration
-[╰─](fg:arrow)$character\
-"""
-# Add the modules you need
+$git_branch\
+$git_state\
+$git_status\
+$line_break\
+$character"""
 
-# Disables the blank line at the start of the prompt
-add_newline = true
+right_format = """
+$typst\
+$rust\
+$battery\
+$cmd_duration\
+$time"""
 
-
-# Palettes:
-#   old: the previous version.
-#   normal: dark gray / yellow / white palette.
-#   light: pastel light colors.
-# To change the colors: change to the corresponding palette.
-palette = "light"
-
-
-[palettes.old]
-arrow = "#353535"
-os = "#3778BF"
-os_admin = "#6A040F"
-directory = "#3F37C9"
-node = "green"
-time = "#177E89"
-git = "#B02B10"
-git_status = "#8B1D2C"
-python = "#3776AB"
-conda = "#3EB049"
-java = "#861215"
-rust = "#C33C00"
-clang = "#00599D"
-duration = "yellow"
-text_color = "#EDF2F4"
-text_light = "#EDF2F4"
-
-[palettes.normal]
-arrow = "#353535"
-os = "#2C3032"
-os_admin = "#6A040F"
-directory = "#363C3E"
-time = "#474D5C"
-node = "#F1DEA9"
-git = "#D0DBDA"
-git_status = "#DFEBED"
-python = "#F5CB5C"
-conda = "#3EB049"
-java = "#861215"
-rust = "#C33C00"
-clang = "#00599D"
-duration = "#F4FBFF"
-text_color = "#EDF2F4"
-text_light = "#26272A"
-
-[palettes.light]
-arrow = "#353535"
-os = "#F7768E"
-os_admin = "#ACBEF1"
-directory = "#FF9578"
-time = "#FFDC72"
-git = "#F5F5F5"
-git_status = "#72FFD5"
-clang = "#67E3FF"
-java = "#FF52A3"
-python = "#B4F9F8"
-node = "#81FF85"
-conda = "#BAF5C0"
-duration = "#91FFE7"
-text_color = "#26272A"
-text_light = "#26272A"
-
-[username]
-style_user = 'os'
-style_root = 'os_admin'
-format = '[]($style)[ cha](bg:$style fg:text_color)[]($style)'
-disabled = false
-show_always = true
-
-[character]
-success_symbol = "[󰍟](fg:arrow)"
-error_symbol = "[󰍟](fg:red)"
+[fill]
+symbol = ' '
 
 [directory]
-format = " [](fg:directory)[  $path ]($style)[$read_only]($read_only_style)[](fg:directory)"
-truncation_length = 2
-style = "fg:text_color bg:directory"
-read_only_style = "fg:text_color bg:directory"
-before_repo_root_style = "fg:text_color bg:directory"
-truncation_symbol = "…/"
-truncate_to_repo = true
-read_only ="  "
+style = "blue"
+
+[character]
+success_symbol = "[❯](purple)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[git_branch]
+format = "[$branch]($style)"
+style = "bright-black"
+
+[git_status]
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+style = "cyan"
+conflicted = "​"
+untracked = "​"
+modified = "​"
+staged = "​"
+renamed = "​"
+deleted = "​"
+stashed = "≡"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = "bright-black"
+
+[cmd_duration]
+format = " [$duration]($style) "
+style = "yellow"
+
+[python]
+format = "[$virtualenv]($style) "
+style = "bright-black"
+
+[typst]
+symbol = "𝐭"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+format = '[ $symbol ($version) ]($style)'
+
+[battery]
+format = "[ $percentage $symbol]($style)"
+full_symbol = "█"
+charging_symbol = "[↑](italic bold green)"
+discharging_symbol = "↓"
+unknown_symbol = "░"
+empty_symbol = "▃"
+
+[[battery.display]]
+threshold = 20
+style = "italic bold red"
+
+[[battery.display]]
+threshold = 60
+style = "italic dimmed bright-purple"
+
+[[battery.display]]
+threshold = 70
+style = "italic dimmed yellow"
 
 [time]
 disabled = false
-format = " [](fg:time)[ $time]($style)[](fg:time)"
-time_format = "%H:%M"
-style = "fg:text_color bg:time"
-
-[cmd_duration]
-format = " [](fg:duration)[ $duration]($style)[](fg:duration)"
-style = "fg:text_light bg:duration"
-min_time = 500
-
-[git_branch]
-format = " [](fg:git)[$symbol$branch](fg:text_light bg:git)[](fg:git)"
-symbol = " "
-
-[git_status]
-format = '([ ](fg:git_status)[ $all_status$ahead_behind ]($style)[](fg:git_status))'
-style = "fg:text_light bg:git_status"
-
-[docker_context]
-disabled=true
-symbol = " "
-
-[package]
-disabled=true
-
-[rust]
-format = "[ ](fg:rust)[$symbol$version](bg:rust fg:text_color)[](fg:rust)"
-symbol = " "
-version_format = "${raw}"
-disabled=true
-
-[c]
-format = "[ ](fg:clang)[$symbol($version(-$name) )](bg:clang fg:text_color)[](fg:clang)"
-symbol = " "
-version_format = "${raw}"
-disabled=true
-
-[os.symbols]
-Alpine = " "
-Amazon = " "
-Android = " "
-Arch = " "
-CentOS = " "
-Debian = " "
-DragonFly = " "
-Emscripten = " "
-EndeavourOS = " "
-Fedora = " "
-FreeBSD = " "
-Gentoo = " "
-Linux = " "
-Macos = " "
-Manjaro = " "
-Mariner = " "
-MidnightBSD = " "
-Mint = " "
-NetBSD = " "
-NixOS = " "
-openSUSE = " "
-Pop = " "
-Raspbian = " "
-Redhat = " "
-RedHatEnterprise = " "
-Redox = " "
-SUSE = " "
-Ubuntu = " "
-Unknown = " "
-Windows = " "
+format = "[ $time]($style)"
+time_format = "%R"
+utc_time_offset = "local"
+style = "italic dimmed white"
