@@ -28,3 +28,6 @@
 !launch_docker_language_tool
 !wofi/*
 !wofi/
+!kitty/*
+!kitty/
+!.alacritty.conf
