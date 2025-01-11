@@ -30,4 +30,4 @@
 !wofi/
 !kitty/*
 !kitty/
-!.alacritty.conf
+!alacritty.toml
