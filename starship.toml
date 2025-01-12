@@ -9,11 +9,11 @@ $line_break\
 $character"""
 
 right_format = """
-$sudo\
-$os\
 $typst\
 $rust\
 $ocaml\
+$os\
+$sudo\
 $battery\
 $cmd_duration\
 $time"""
