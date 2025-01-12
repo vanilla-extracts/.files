@@ -4,15 +4,18 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$git_metrics\
 $line_break\
 $character"""
 
 right_format = """
+$sudo\
+$os\
 $typst\
 $rust\
+$ocaml\
 $battery\
 $cmd_duration\
-$sudo\
 $time"""
 
 [fill]
@@ -29,23 +32,26 @@ vimcmd_symbol = "[❮](green)"
 [sudo]
 format = "[$symbol]($style)"
 style = "bold italic bright-purple"
-symbol = "  "
+symbol = "   "
 disabled = false
+
+[os]
+disabled = false
+style = "bold blue"
+
+[os.symbols]
+Fedora = " "
 
 [git_branch]
 format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+format = "[[( *$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
 style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
+
+[git_metrics]
+disabled = false
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
@@ -66,6 +72,10 @@ format = '[ $symbol ($version) ]($style)'
 [rust]
 symbol = ""
 format = '[ $symbol ($version) ]($style)'
+
+[ocaml]
+format = '[ $symbol($version) ]($style)'
+style = 'bold yellow'
 
 [battery]
 format = "[ $percentage $symbol]($style)"
