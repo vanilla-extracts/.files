@@ -12,6 +12,7 @@ right_format = """
 $typst\
 $rust\
 $ocaml\
+$python\
 $os\
 $sudo\
 $battery\
@@ -61,10 +62,6 @@ style = "bright-black"
 format = " [$duration]($style) "
 style = "yellow"
 
-[python]
-format = "[$virtualenv]($style) "
-style = "bright-black"
-
 [typst]
 symbol = "𝐭"
 format = '[ $symbol ($version) ]($style)'
@@ -76,6 +73,10 @@ format = '[ $symbol ($version) ]($style)'
 [ocaml]
 format = '[ $symbol($version) ]($style)'
 style = 'bold yellow'
+
+[python]
+format = '[ $symbol($version) ]($style)'
+style = 'bright-green'
 
 [battery]
 format = "[ $percentage $symbol]($style)"
