@@ -59,7 +59,7 @@
   "format-off": "",
   "format-disabled": "󰂲",
   "format-connected": "󰂴",
-  "format-connected-battery": "{device_battery_percentage}% 󰂴",
+  "format-connected-battery": "󰂴",
   "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
   "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
   "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
