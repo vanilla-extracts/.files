@@ -1,16 +1,16 @@
 window {
   font-family: "Monaspace Krypton", "Font Awesome 6 Free";
   margin: 2px;
-  border: 3px solid rgba(240, 128, 128, 0.9);
-  background-color: rgba(251, 196, 171, 0.9);
+  border: 3px solid rgba(63, 0, 4, 0.9);
+  background-color: rgba(92, 22, 48, 0.9);
   border-radius: 10px;
 }
 
 #input {
   margin: 5px;
-  border: 2px solid rgba(240,128,128,1);
-  color: #565656;
-  background-color: rgba(251,196,171,0.9);
+  border: 2px solid rgba(63,0,4,1);
+  color: #707070;
+  background-color: rgba(92,22,48,0.9);
 }
 
 #inner-box {
@@ -33,7 +33,7 @@ window {
 #text {
   margin: 5px;
   border: none;
-  color: #565656;
+  color: #707070;
 }
 
 #entry {
@@ -41,11 +41,11 @@ window {
 }
 
 #entry:focus {
-  border: 3px solid rgba(240,128,128,0.9);
+  border: 3px solid rgba(63,0,4,0.9);
 }
 
 #entry:selected {
-  background-color: rgba(248, 173, 157, 0.95);
+  background-color: rgba(92, 22, 48, 0.95);
   border-radius: 5px;
-  border: 3px solid rgba(240,128,128,1);
+  border: 3px solid rgba(63,0,4,1);
 }
