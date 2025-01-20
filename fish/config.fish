@@ -23,7 +23,7 @@ set DEV $HOME/Documents/dev
 set -x EDITOR vim
 set -x VISUAL vim
 set -x CODE_EDITOR nvim
-
+set -x LEDGER_FILE $DOCSOFF/budget/hledger.journal
 starship init fish | source
 
 alias ls="eza -l --icons=always --group-directories-first --hyperlink"
