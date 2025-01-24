@@ -10,7 +10,7 @@ local on_attach = function(_, bufnr)
             desc = "LSP: " .. desc
         end
 
-        vim.keymap.set("n", keys, func, {buffer = bufnr, desc = desc})
+        vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
     end
 
     nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
@@ -22,23 +22,23 @@ local on_attach = function(_, bufnr)
     nmap("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
     nmap("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
     nmap("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
-    
-	nmap('gD','<cmd>lua vim.lsp.buf.declaration()<CR>')
-	nmap('gd','<cmd>lua vim.lsp.buf.definition()<CR>')
-	nmap('K','<cmd>lua vim.lsp.buf.hover()<CR>')
-	nmap('gr','<cmd>lua vim.lsp.buf.references()<CR>')
-	nmap('gs','<cmd>lua vim.lsp.buf.signature_help()<CR>')
-	nmap('gi','<cmd>lua vim.lsp.buf.implementation()<CR>')
-	nmap('gt','<cmd>lua vim.lsp.buf.type_definition()<CR>')
-	nmap('<leader>gw','<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-	nmap('<leader>gW','<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-	nmap('<leader>ah','<cmd>lua vim.lsp.buf.hover()<CR>')
-	nmap('<leader>af','<cmd>lua vim.lsp.buf.code_action()<CR>')
-	nmap('<leader>ee','<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
-	nmap('<leader>ar','<cmd>lua vim.lsp.buf.rename()<CR>')
-	nmap('<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
-	nmap('<leader>ai','<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
-	nmap('<leader>ao','<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
+
+    nmap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+    nmap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+    nmap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    nmap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+    nmap('gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+    nmap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+    nmap('gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+    nmap('<leader>gw', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
+    nmap('<leader>gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+    nmap('<leader>ah', '<cmd>lua vim.lsp.buf.hover()<CR>')
+    nmap('<leader>af', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+    nmap('<leader>ee', '<cmd>lua vim.lsp.util.show_line_diagnostics()<CR>')
+    nmap('<leader>ar', '<cmd>lua vim.lsp.buf.rename()<CR>')
+    nmap('<leader>=', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+    nmap('<leader>ai', '<cmd>lua vim.lsp.buf.incoming_calls()<CR>')
+    nmap('<leader>ao', '<cmd>lua vim.lsp.buf.outgoing_calls()<CR>')
     -- See `:help K` for why this keymap
     nmap("K", vim.lsp.buf.hover, "Hover Documentation")
     nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
@@ -62,7 +62,7 @@ local on_attach = function(_, bufnr)
         function(_)
             vim.lsp.buf.format()
         end,
-        {desc = "Format current buffer with LSP"}
+        { desc = "Format current buffer with LSP" }
     )
 end
 
@@ -99,8 +99,8 @@ local servers = {
     },
     lua_ls = {
         Lua = {
-            workspace = {checkThirdParty = false},
-            telemetry = {enable = false}
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false }
         }
     }
 }
@@ -168,7 +168,7 @@ cmp.setup {
                     fallback()
                 end
             end,
-            {"i", "s"}
+            { "i", "s" }
         ),
         ["<S-Tab>"] = cmp.mapping(
             function(fallback)
@@ -180,11 +180,11 @@ cmp.setup {
                     fallback()
                 end
             end,
-            {"i", "s"}
+            { "i", "s" }
         )
     },
     sources = {
-        {name = "nvim_lsp"},
-        {name = "luasnip"}
+        { name = "nvim_lsp" },
+        { name = "luasnip" }
     }
 }

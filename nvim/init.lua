@@ -1,4 +1,3 @@
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -60,7 +59,7 @@ require("lazy").setup(
         {
             "romgrk/barbar.nvim",
             dependencies = {
-                "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+                "lewis6991/gitsigns.nvim",    -- OPTIONAL: for git status
                 "nvim-tree/nvim-web-devicons" -- OPTIONAL: for file icons
             },
             init = function()
@@ -85,7 +84,7 @@ require("lazy").setup(
             config = true
         },
         -- Git related plugins
-        {"catppuccin/nvim", name = "catppuccin", priority = 1000},
+        { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
         "simrat39/rust-tools.nvim",
         "tpope/vim-fugitive",
         "tpope/vim-rhubarb",
@@ -102,7 +101,7 @@ require("lazy").setup(
                 "williamboman/mason-lspconfig.nvim",
                 -- Useful status updates for LSP
                 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-                {"j-hui/fidget.nvim", tag = "legacy", opts = {}},
+                { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
                 -- Additional lua configuration, makes nvim stuff amazing!
                 "folke/neodev.nvim"
             }
@@ -121,31 +120,31 @@ require("lazy").setup(
             }
         },
         -- Useful plugin to show you pending keybinds.
-        {"folke/which-key.nvim", opts = {}},
+        { "folke/which-key.nvim", opts = {} },
         {
             -- Adds git related signs to the gutter, as well as utilities for managing changes
             "lewis6991/gitsigns.nvim",
             opts = {
                 -- See `:help gitsigns.txt`
                 signs = {
-                    add = {text = "+"},
-                    change = {text = "~"},
-                    delete = {text = "_"},
-                    topdelete = {text = "‾"},
-                    changedelete = {text = "~"}
+                    add = { text = "+" },
+                    change = { text = "~" },
+                    delete = { text = "_" },
+                    topdelete = { text = "‾" },
+                    changedelete = { text = "~" }
                 },
                 on_attach = function(bufnr)
                     vim.keymap.set(
                         "n",
                         "<leader>hp",
                         require("gitsigns").preview_hunk,
-                        {buffer = bufnr, desc = "Preview git hunk"}
+                        { buffer = bufnr, desc = "Preview git hunk" }
                     )
 
                     -- don't override the built-in and fugitive keymaps
                     local gs = package.loaded.gitsigns
                     vim.keymap.set(
-                        {"n", "v"},
+                        { "n", "v" },
                         "]c",
                         function()
                             if vim.wo.diff then
@@ -158,10 +157,10 @@ require("lazy").setup(
                             )
                             return "<Ignore>"
                         end,
-                        {expr = true, buffer = bufnr, desc = "Jump to next hunk"}
+                        { expr = true, buffer = bufnr, desc = "Jump to next hunk" }
                     )
                     vim.keymap.set(
-                        {"n", "v"},
+                        { "n", "v" },
                         "[c",
                         function()
                             if vim.wo.diff then
@@ -174,7 +173,7 @@ require("lazy").setup(
                             )
                             return "<Ignore>"
                         end,
-                        {expr = true, buffer = bufnr, desc = "Jump to previous hunk"}
+                        { expr = true, buffer = bufnr, desc = "Jump to previous hunk" }
                     )
                 end
             }
@@ -188,41 +187,41 @@ require("lazy").setup(
                 options = {
                     icons_enabled = true,
                     theme = 'auto',
-                    component_separators = { left = '', right = ''},
-                    section_separators = { left = '', right = ''},
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
                     disabled_filetypes = {
-                    statusline = {},
-                    winbar = {},
+                        statusline = {},
+                        winbar = {},
+                    },
+                    ignore_focus = {},
+                    always_divide_middle = true,
+                    globalstatus = false,
+                    refresh = {
+                        statusline = 1000,
+                        tabline = 1000,
+                        winbar = 1000,
+                    }
                 },
-                ignore_focus = {},
-                always_divide_middle = true,
-                globalstatus = false,
-                refresh = {
-                    statusline = 1000,
-                    tabline = 1000,
-                    winbar = 1000,
-                }
-            },
-            sections = {
-                lualine_a = {'mode'},
-                lualine_b = {'branch', 'diff', 'diagnostics'},
-                lualine_c = {'filename'},
-                lualine_x = {'encoding', 'fileformat', 'filetype'},
-                lualine_y = {'progress'},
-                lualine_z = {'location'}
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {'filename'},
-                lualine_x = {'location'},
-                lualine_y = {},
-                lualine_z = {}
-            },
-            tabline = {},
-            winbar = {},
-            inactive_winbar = {},
-            extensions = {}
+                sections = {
+                    lualine_a = { 'mode' },
+                    lualine_b = { 'branch', 'diff', 'diagnostics' },
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+                    lualine_y = { 'progress' },
+                    lualine_z = { 'location' }
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = { 'filename' },
+                    lualine_x = { 'location' },
+                    lualine_y = {},
+                    lualine_z = {}
+                },
+                tabline = {},
+                winbar = {},
+                inactive_winbar = {},
+                extensions = {}
             }
         },
         {
@@ -234,7 +233,7 @@ require("lazy").setup(
             opts = {}
         },
         -- "gc" to comment visual regions/lines
-        {"numToStr/Comment.nvim", opts = {}},
+        { "numToStr/Comment.nvim", opts = {} },
         -- Fuzzy Finder (files, lsp, etc)
         {
             "nvim-telescope/telescope.nvim",

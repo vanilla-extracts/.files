@@ -30,7 +30,7 @@ local function live_grep_git_root()
     if git_root then
         require("telescope.builtin").live_grep(
             {
-                search_dirs = {git_root}
+                search_dirs = { git_root }
             }
         )
     end
@@ -60,8 +60,8 @@ vim.defer_fn(
             },
             -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
             auto_install = false,
-            highlight = {enable = true},
-            indent = {enable = true},
+            highlight = { enable = true },
+            indent = { enable = true },
             incremental_selection = {
                 enable = true,
                 keymaps = {
