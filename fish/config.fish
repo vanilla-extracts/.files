@@ -29,6 +29,7 @@ starship init fish | source
 alias ls="eza -l --icons=always --group-directories-first --hyperlink"
 alias listen="lsof -i -P -n | grep LISTEN"
 alias lz="lazygit"
+alias girl="man"
 # pnpm
 
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
