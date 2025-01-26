@@ -1,4 +1,4 @@
-local rt = require("rust-tools")
+local rt = require("rustaceanvim.config")
 
 rt.setup({
   server = {

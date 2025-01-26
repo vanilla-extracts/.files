@@ -3,7 +3,6 @@ local autocmd = vim.api.nvim_create_autocmd
 vim.filetype.add { extension = { typ = "typst" } }
 vim.filetype.add { extension = { skel = "skel", sk = "skel" } }
 
-
 autocmd("FileType", {
   pattern  = { "markdown", "tex", "typst" },
   callback = function()

@@ -26,6 +26,11 @@ require("lazy").setup(
             }
         },
         {
+            "chrisgrieser/nvim-lsp-endhints",
+            event = "LspAttach",
+            opts = {}, -- required, even if empty
+        },
+        {
             "startup-nvim/startup.nvim",
             dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
             config = function()
@@ -33,7 +38,7 @@ require("lazy").setup(
             end
         },
         {
-          "RRethy/base16-nvim", 
+            "RRethy/base16-nvim",
         },
         {
             "pmizio/typescript-tools.nvim",
@@ -88,7 +93,11 @@ require("lazy").setup(
         },
         -- Git related plugins
         { "catppuccin/nvim",      name = "catppuccin", priority = 1000 },
-        "simrat39/rust-tools.nvim",
+        {
+            'mrcjkb/rustaceanvim',
+            version = '^5', -- Recommended
+            lazy = false,   -- This plugin is already lazy
+        },
         "tpope/vim-fugitive",
         "tpope/vim-rhubarb",
         -- Detect tabstop and shiftwidth automatically
