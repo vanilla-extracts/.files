@@ -33,6 +33,9 @@ require("lazy").setup(
             end
         },
         {
+          "RRethy/base16-nvim", 
+        },
+        {
             "pmizio/typescript-tools.nvim",
             dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
             opts = {},
@@ -276,4 +279,4 @@ require("tree_config")
 require("lsp_config_file")
 require("cat_config")
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme "base16-catppuccin-macchiato"
