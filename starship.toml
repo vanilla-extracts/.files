@@ -1,4 +1,5 @@
 format = """
+$username\
 $hostname\
 $directory\
 $git_branch\
@@ -24,6 +25,17 @@ symbol = ' '
 
 [directory]
 style = "blue"
+
+[username]
+show_always=true
+format = '[$user@]($style)'
+style_user = 'blue bold'
+style_root = 'red bold'
+
+[hostname]
+ssh_only=false
+format = '[$hostname]($style)[:](blue)'
+style = 'blue bold'
 
 [character]
 success_symbol = "[❯](purple)"
