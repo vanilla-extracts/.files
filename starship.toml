@@ -1,12 +1,12 @@
 format = """
-$username\
-$hostname\
 $directory\
 $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
 $line_break\
+$username\
+$hostname\
 $character"""
 
 right_format = """
@@ -29,13 +29,13 @@ style = "blue"
 [username]
 show_always=true
 format = '[$user@]($style)'
-style_user = 'blue bold'
+style_user = 'purple bold'
 style_root = 'red bold'
 
 [hostname]
 ssh_only=false
-format = '[$hostname]($style)[:](blue)'
-style = 'blue bold'
+format = '[$hostname]($style)'
+style = 'purple bold'
 
 [character]
 success_symbol = "[❯](purple)"
