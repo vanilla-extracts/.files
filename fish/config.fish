@@ -10,12 +10,12 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 
-setsid wal -i ~/Images/bg.png 2> /dev/null
+#setsid wal -i ~/Images/bg.png 2> /dev/null
 ssh-add $HOME/.ssh/id_github_me 2> /dev/null
 jump shell fish | source
 
 set TYPST $HOME/.config/typst_templates
-set PATH $PATH:$HOME/.cargo/bin:$HOME/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/
+set PATH $PATH:$HOME/.cargo/bin:$HOME/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/:$HOME/go/bin
 set -x TYPST_FONT_PATH /usr/share/fonts:$HOME/.fonts
 set DOCSOFF $HOME/Documents/docsoff
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH:$HOME/.lib
@@ -40,7 +40,7 @@ end
 
 # opam configuration
 source $HOME/credentials.fish
-source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+#source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 function __jump_add --on-variable PWD
   status --is-command-substitution; and return
