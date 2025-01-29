@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+~/.config/sway/inhibitors/pulse.sh || exit 1
+~/.config/sway/inhibitors/hub_on.sh || exit 1
+
+swaylock --screenshots --clock --indicator --indicator-radius 100 --effect-blur 7x5 --ring-color 55cdfc --key-hl-color f7a8d8 --line-color 00000000 --inside-color 00000088 --separator-color 00000000;
