@@ -58,3 +58,4 @@ function j
 end
 
 complete --command j --exclusive --arguments '(__jump_hint)'
+source /home/charlotte/.cargo/env.fish
