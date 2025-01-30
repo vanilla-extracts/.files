@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["custom/logo", "clock", "hyprland/workspaces" ],
   "modules-center": [ "hyprland/window" ],
-  "modules-right": ["tray", "backlight", "bluetooth", "custom/trackpad", "pulseaudio", "network",  "battery"],
+  "modules-right": ["tray", "backlight", "bluetooth", "pulseaudio", "network",  "battery"],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -132,14 +132,6 @@
     "exec": "",
     "on-click": "sleep 1 && hyprpicker -a",
     "signal": 1
-  },
-
-  "custom/trackpad": {
-    "return-type": "json",
-    "interval": 30,
-    "exec": "trackpad_battery",
-    "exec-if":"[[ -e /sys/class/power_supply/hid-34:f6:8d:f1:77:0c-battery/capacity ]]", 
-    "signal": 127
   },
 
   "cpu": {
