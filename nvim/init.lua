@@ -26,6 +26,15 @@ require("lazy").setup(
             }
         },
         {
+            "folke/todo-comments.nvim",
+            dependencies = { "nvim-lua/plenary.nvim" },
+            opts = {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        },
+        {
             "chrisgrieser/nvim-lsp-endhints",
             event = "LspAttach",
             opts = {}, -- required, even if empty
@@ -288,4 +297,4 @@ require("tree_config")
 require("lsp_config_file")
 require("cat_config")
 
-vim.cmd.colorscheme "base16-catppuccin-macchiato"
+vim.cmd.colorscheme "catppuccin"
