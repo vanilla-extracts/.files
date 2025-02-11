@@ -10,7 +10,7 @@ set fish_cursor_insert line
 set fish_cursor_replace_one underscore
 set fish_cursor_visual block
 set sponge_regex_patterns '^rm -rf \*$'
-
+set sponge_delay 0
 #setsid wal -i ~/Images/bg.png 2> /dev/null
 ssh-add $HOME/.ssh/id_github_me 2> /dev/null
 jump shell fish | source
