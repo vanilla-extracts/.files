@@ -21,6 +21,7 @@ set -x TYPST_FONT_PATH /usr/share/fonts:$HOME/.fonts
 set DOCSOFF $HOME/Documents/docsoff
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH:$HOME/.lib
 set DEV $HOME/Documents/dev
+set -x CONFIG $HOME/.config
 set -x EDITOR vim
 set -x VISUAL vim
 set -x CODE_EDITOR nvim
@@ -31,6 +32,7 @@ alias ls="eza -l --icons=always --group-directories-first --hyperlink"
 alias listen="lsof -i -P -n | grep LISTEN"
 alias lz="lazygit"
 alias girl="man"
+alias cargo="cargo clicker"
 # pnpm
 
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
