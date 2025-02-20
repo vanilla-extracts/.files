@@ -1,9 +1,8 @@
 profile home_office {
   output "eDP-1" disable                    
-  output "Dell Inc. DELL G2725D F342S34" mode 2560x1440@120Hz position 1440,0 scale 1.25
+  output "Dell Inc. DELL G2725D F342S34" mode 2560x1440@120Hz position 0,0 scale 1.25
 }
 
-profile {
-  output "eDP-1" enable position 0,0 scale 2
-  output "Dell Inc. DELL G2725D F342S34" disable 
+profile base {
+  output eDP-1 enable position 0,0
 }
