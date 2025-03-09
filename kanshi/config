@@ -1,6 +1,7 @@
 profile home_office {
   output eDP-1 disable                    
-  output "Dell Inc. DELL G2725D F342S34" enable
+  output "Dell Inc. DELL G2725D F342S34" enable mode "2560x1440@120" scale 1.25
+
 }
 
 profile base {

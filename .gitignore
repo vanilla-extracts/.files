@@ -16,6 +16,8 @@
 !neofetch/*
 !hypr/
 !hypr/*
+!niri/
+!niri/*
 !typst_template
 !initialise_typst
 !cool_swaylock

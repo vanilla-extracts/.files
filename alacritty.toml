@@ -3,6 +3,7 @@ opacity = 0.9
 blur = true 
 title = "Terminal"
 dynamic_title = true
+decorations = "None"
 
 [font]
 normal = {family = "Monaspace Xenon", style = "Regular"}
