@@ -3,7 +3,7 @@
     color: white;
     font-size: 12px;
     font-family: "Monaspace Radon", "Font Awesome 6 Free", "Font Awesome 6 Brands", "PT Sans";
-    min-height: 25px;
+    min-height: 20px;
 }
 
 window#waybar {
@@ -17,20 +17,20 @@ window#waybar {
 
 .modules-right {
   padding-left: 5px;
-  border-radius: 15px 0 0 15px;
+  border-radius: 10px 0 0 10px;
   margin-top: 2px;
   background: #5C1630;
 }
 
 .modules-center {
-  padding: 0 15px;
+  padding: 0 10px;
   margin-top: 2px;
-  border-radius: 15px 15px 15px 15px;
+  border-radius: 10px 10px 10px 10px;
   background: #5C1630;
 }
 
 .modules-left {
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 10px 10px 0;
   margin-top: 2px;
   background: #5C1630;
 }
@@ -52,12 +52,14 @@ window#waybar {
 #jack,
 #tray,
 #window,
-#workspaces,
 #clock {
   padding: 0 5px;
 }
 #pulseaudio {
   padding-top: 3px;
+}
+#workspaces {
+  padding: 0 1px;
 }
 
 #temperature.critical,

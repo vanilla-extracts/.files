@@ -6,6 +6,11 @@
 // Input device configuration.
 // Find the full list of options on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Input
+
+hotkey-overlay {
+    skip-at-startup
+}
+
 input {
     keyboard {
         xkb {
@@ -158,10 +163,10 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        //active-color "#7fc8ff"
 
         // Color of the ring on inactive monitors.
-        inactive-color "#505050"
+        //inactive-color "#505050"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -170,13 +175,13 @@ layout {
         // You can use any CSS linear-gradient tool on the web to set these up.
         // Changing the color space is also supported, check the wiki for more info.
         //
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
+         active-gradient from="#f7a8d8" to="#55cdfc" angle=45
 
         // You can also color the gradient relative to the entire view
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        inactive-gradient from="#EF7627" to="#A30262" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -186,11 +191,11 @@ layout {
         off
 
         width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        //active-color "#ffc87f"
+        //inactive-color "#505050"
 
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+        //active-gradient from="#f7a8d8" to="#55cdfc" angle=45 relative-to="workspace-view"
+        //inactive-gradient from="#EF7627" to="#808080" angle=45 relative-to="workspace-view"
     }
 
     // You can enable drop shadows for windows.
@@ -257,7 +262,11 @@ spawn-at-startup "fusuma" "-d"
 spawn-at-startup "kanshi"
 spawn-at-startup "syncthing"
 spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
+spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "firefox"
+spawn-at-startup "vesktop"
+spawn-at-startup "thunderbird"
 environment {
     DISPLAY ":0"
 }
@@ -268,7 +277,7 @@ environment {
 // After enabling or disabling this, you need to restart the apps for this to take effect.
 prefer-no-csd
 
-// You can change the path where screenshots are saved.
+// Yzou can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
@@ -293,6 +302,7 @@ animations {
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
+
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -309,7 +319,6 @@ window-rule {
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
 }
-
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
@@ -349,6 +358,10 @@ binds {
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "wofi" "--show" "run"; }
     Mod+K { spawn "wofi" "--show" "drun"; }
+    Mod+S { focus-workspace 5; }
+    Mod+B { focus-workspace 6; }
+    Mod+Shift+S { move-window-to-workspace 5; }
+    Mod+Shift+B { move-window-to-workspace 6; }
     Super+Shift+L { spawn "hyprlock"; }
     
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -374,7 +387,7 @@ binds {
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
 
-
+    Mod+E {spawn "nautilus";}
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Ctrl+Home { move-column-to-first; }
@@ -466,23 +479,23 @@ binds {
     // will all refer to the 3rd workspace.
     Mod+ampersand { focus-workspace 1; }
     Mod+Eacute { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+ampersand { move-column-to-workspace 1; }
-    Mod+Ctrl+Eacute { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+quotedbl { focus-workspace 3; }
 
+    Mod+apostrophe { focus-workspace 4; }
+    Mod+parenleft { focus-workspace 5; }
+    Mod+minus { focus-workspace 6; }
+    Mod+egrave { focus-workspace 7; }
+    Mod+underscore { focus-workspace 8; }
+    Mod+ccedilla { focus-workspace 9; }
+    Mod+Shift+ampersand { move-column-to-workspace 1; }
+    Mod+Shift+Eacute { move-column-to-workspace 2; }
+    Mod+Shift+quotedbl { move-column-to-workspace 3; }
+    Mod+Shift+apostrophe { move-column-to-workspace 4; }
+    Mod+Shift+parenleft { move-column-to-workspace 5; }
+    Mod+Shift+minus { move-column-to-workspace 6; }
+    Mod+Shift+egrave { move-column-to-workspace 7; }
+    Mod+Shift+underscore { move-column-to-workspace 8; }
+    Mod+Shift+ccedilla { move-column-to-workspace 9; }
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
 
@@ -520,12 +533,8 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
@@ -533,7 +542,7 @@ binds {
 
     // Toggle tabbed column display mode.
     // Windows in this column will appear as vertical tabs,
-    // rather than stacked on top of each other.
+// rather than stacked on top of each other.
     Mod+W { toggle-column-tabbed-display; }
 
     // Actions to switch layouts.
@@ -544,9 +553,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
-    Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Home { screenshot; }
+    Ctrl+Home { screenshot-screen; }
+    Alt+Home { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
