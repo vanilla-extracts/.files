@@ -405,7 +405,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "wofi" "--show" "run"; }
-    Mod+S { focus-workspace "scratch"; }
+    Mod+S { focus-workspace "scratch";}
     Mod+Shift+S { move-window-to-workspace "scratch"; }
     Mod+B { focus-workspace "btop"; }
     Mod+Shift+B { move-window-to-workspace "btop"; }
