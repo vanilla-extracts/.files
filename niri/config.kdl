@@ -11,6 +11,15 @@ hotkey-overlay {
     skip-at-startup
 }
 
+workspace "first"
+workspace "second"
+workspace "third"
+workspace "fourth"
+workspace "fifth"
+workspace "scratch"
+workspace "btop"
+workspace "keepassxc"
+
 input {
     keyboard {
         xkb {
@@ -60,10 +69,11 @@ input {
     // Uncomment this to make the mouse warp to the center of newly focused windows.
     // warp-mouse-to-focus
 
-    // Focus windows and outputs automatically when moving the mouse into them.
+    // Focus wind/ows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     // focus-follows-mouse max-scroll-amount="0%"
 }
+
 
 // You can configure outputs by their name, which you can find
 // by running `niri msg outputs` while inside a niri instance.
@@ -257,16 +267,19 @@ spawn-at-startup "waybar"
 spawn-at-startup "nm-applet" "&"
 spawn-at-startup "swaybg" "-i" "/home/charlotte/Pictures/bg.png"
 spawn-at-startup "swaync"
-spawn-at-startup "keepassxc"
+spawn-at-startup "keepassxc" "-platform" "xcb"
 spawn-at-startup "fusuma" "-d" 
 spawn-at-startup "kanshi"
 spawn-at-startup "syncthing"
 spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
 spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "firefox"
-spawn-at-startup "vesktop"
-spawn-at-startup "thunderbird"
+spawn-at-startup "zen-browser" "--name" "first"
+spawn-at-startup "vesktop" "--ozone-platform=wayland" "--class" "second"
+spawn-at-startup "thunderbird" "--name" "third"
+spawn-at-startup "alacritty" "--class" "fourth"
+spawn-at-startup "alacritty" "--class" "btop" "-e" "bash" "-c" "btop"
+spawn-at-startup "alacritty" "--class" "scratch" "-e" "bash" "-c" "sessions /home/charlotte/Documents/dev/journal"
 environment {
     DISPLAY ":0"
 }
@@ -309,6 +322,41 @@ window-rule {
     // You can get away with just app-id="wezterm" if you want.
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
+}
+
+window-rule {
+    match app-id="first"
+    open-maximized true
+    open-on-workspace "first"
+}
+
+window-rule {
+    match app-id="vesktop"
+    open-maximized true
+    open-on-workspace "second"
+}
+
+window-rule {
+    match app-id="third"
+    open-maximized true
+    open-on-workspace "third"
+}
+
+window-rule {
+    match app-id="fourth"
+    open-maximized true
+    open-on-workspace "fourth"
+}
+
+window-rule {
+    match app-id="scratch"
+    open-on-workspace "scratch"
+}
+
+window-rule {
+    match app-id="btop"
+    open-maximized true
+    open-on-workspace "btop"
 }
 
 // Open the Firefox picture-in-picture player as floating by default.
@@ -357,11 +405,13 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "wofi" "--show" "run"; }
+    Mod+S { focus-workspace "scratch"; }
+    Mod+Shift+S { move-window-to-workspace "scratch"; }
+    Mod+B { focus-workspace "btop"; }
+    Mod+Shift+B { move-window-to-workspace "btop"; }
+    Mod+Ctrl+S { focus-workspace "keepassxc"; }
     Mod+K { spawn "wofi" "--show" "drun"; }
-    Mod+S { focus-workspace 5; }
-    Mod+B { focus-workspace 6; }
-    Mod+Shift+S { move-window-to-workspace 5; }
-    Mod+Shift+B { move-window-to-workspace 6; }
+    Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
     Super+Shift+L { spawn "hyprlock"; }
     
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
@@ -477,24 +527,24 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+ampersand { focus-workspace 1; }
-    Mod+Eacute { focus-workspace 2; }
-    Mod+quotedbl { focus-workspace 3; }
+    Mod+ampersand { focus-workspace "first"; }
+    Mod+Eacute { focus-workspace "second"; }
+    Mod+quotedbl { focus-workspace "third"; }
 
-    Mod+apostrophe { focus-workspace 4; }
-    Mod+parenleft { focus-workspace 5; }
-    Mod+minus { focus-workspace 6; }
-    Mod+egrave { focus-workspace 7; }
-    Mod+underscore { focus-workspace 8; }
+    Mod+apostrophe { focus-workspace "fourth"; }
+    Mod+parenleft { focus-workspace "fifth"; }
+    Mod+minus { focus-workspace "scratch"; }
+    Mod+egrave { focus-workspace "btop"; }
+    Mod+underscore { focus-workspace "keepassxc"; }
     Mod+ccedilla { focus-workspace 9; }
-    Mod+Shift+ampersand { move-column-to-workspace 1; }
-    Mod+Shift+Eacute { move-column-to-workspace 2; }
-    Mod+Shift+quotedbl { move-column-to-workspace 3; }
-    Mod+Shift+apostrophe { move-column-to-workspace 4; }
-    Mod+Shift+parenleft { move-column-to-workspace 5; }
-    Mod+Shift+minus { move-column-to-workspace 6; }
-    Mod+Shift+egrave { move-column-to-workspace 7; }
-    Mod+Shift+underscore { move-column-to-workspace 8; }
+    Mod+Shift+ampersand { move-column-to-workspace "first"; }
+    Mod+Shift+Eacute { move-column-to-workspace "second"; }
+    Mod+Shift+quotedbl { move-column-to-workspace "third"; }
+    Mod+Shift+apostrophe { move-column-to-workspace "fourth"; }
+    Mod+Shift+parenleft { move-column-to-workspace "fifth"; }
+    Mod+Shift+minus { move-column-to-workspace "scratch"; }
+    Mod+Shift+egrave { move-column-to-workspace "btop"; }
+    Mod+Shift+underscore { move-column-to-workspace "keepassxc"; }
     Mod+Shift+ccedilla { move-column-to-workspace 9; }
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }

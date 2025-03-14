@@ -1,9 +1,9 @@
 {
   "layer": "top", 
   "position": "top",
-  "modules-left": ["custom/logo", "clock", "niri/workspaces" ],
-"modules-center": [ "niri/window" ],
-"modules-right": ["tray", "backlight", "bluetooth", "pulseaudio", "network",  "battery"],
+  "modules-left": ["custom/logo", "clock", "niri/workspaces"],
+  "modules-center": [ "niri/window" ],
+  "modules-right": ["tray", "backlight", "bluetooth", "pulseaudio", "network",  "battery"],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -12,19 +12,8 @@
   },
 
   "niri/workspaces": {
-	"format": "{icon}",
-	"format-icons": {
-		"1": " ",
-		"2": " ",
-		"3": " ",
-		"4": " ",
-		"5": " ",
-		"6": " ",
-		"active": " ",
-		"default": " "  
-	},
+   "current-only": true
   },
-
 
 "clock": {
       "format": "{:%Y-%m-%d %H:%M:%S}",
