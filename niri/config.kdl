@@ -397,12 +397,11 @@ binds {
     Mod+Return { spawn "alacritty"; }
     Mod+D { spawn "fuzzel"; }
     Mod+S { focus-workspace "scratch";}
-    Mod+Shift+S { move-window-to-workspace "scratch"; }
     Mod+B { focus-workspace "btop"; }
-    Mod+Shift+B { move-window-to-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
     Mod+K { spawn "window_switcher.sh"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
+    Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
     Super+Shift+L { spawn "hyprlock"; }
