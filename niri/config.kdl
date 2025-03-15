@@ -264,7 +264,8 @@ spawn-at-startup "keepassxc" "-platform" "xcb"
 spawn-at-startup "thunderbird" "--name" "third"
 spawn-at-startup "alacritty" "--class" "fourth"
 spawn-at-startup "alacritty" "--class" "btop" "-e" "bash" "-c" "btop"
-spawn-at-startup "alacritty" "--class" "scratch" "-e" "bash" "-c" "sessions /home/charlotte/Documents/dev/journal"
+spawn-at-startup "alacritty" "--class" "scratch" "-e" "fish" "-c" "cd $DEV/journal && nvim ."
+spawn-at-startup "alacritty" "--class" "scratch" "-e" "bash" "-c" "cd $DEV/journal && make watch"
 environment {
     DISPLAY ":0"
 }
