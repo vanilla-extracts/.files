@@ -402,6 +402,7 @@ binds {
     Mod+Shift+B { move-window-to-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
     Mod+K { spawn "window_switcher.sh"; }
+    Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
     Super+Shift+L { spawn "hyprlock"; }
