@@ -396,7 +396,7 @@ binds {
     Mod+B { focus-workspace "btop"; }
     Mod+Shift+B { move-window-to-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
-    Mod+K { spawn "fuzzel"; }
+    Mod+K { spawn "window_switcher.sh"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
     Super+Shift+L { spawn "hyprlock"; }
     
