@@ -15,6 +15,7 @@ function fzf-browse
             echo "evince"
             echo "chromium"
             echo "gimp"
+            echo "clipboard"
         end | fzf)
 
     switch "$mode"
@@ -24,6 +25,8 @@ function fzf-browse
             nohup chromium-browser "file://$selected" &
         case gimp
             nohup gimp "$selected" &
+        case clipboard
+            cat "$selected" | wl-copy
     end
     exit;
 end
