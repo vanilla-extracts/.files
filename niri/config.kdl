@@ -19,7 +19,6 @@ workspace "fifth"
 workspace "scratch"
 workspace "btop"
 workspace "keepassxc"
-
 input {
     keyboard {
         xkb {
