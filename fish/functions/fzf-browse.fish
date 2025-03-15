@@ -23,7 +23,7 @@ function fzf-browse
 
     switch "$mode"
         case open
-            nohup xdg-open "$selected" &
+            nohup xdg-open $selected &
         case evince
             nohup evince "$selected" &
         case chromium
