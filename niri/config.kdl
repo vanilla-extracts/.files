@@ -403,11 +403,11 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "alacritty"; }
-    Mod+D { spawn "fuzzel"; }
+    Mod+D { spawn "rofi" "-show" "drun" "-show-icons"; }
     Mod+S { focus-workspace "scratch";}
     Mod+B { focus-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
-    Mod+K { spawn "rofi" "-show" "window"; }
+    Mod+K { spawn "rofi" "-show" "window" "-show-icons"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
     Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
