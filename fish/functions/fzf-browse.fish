@@ -1,7 +1,7 @@
 function fzf-browse
     set selected \
         (begin
-            fd -tf . $HOME
+            fd -tf . $HOME/Documents
         end | fzf)
 
     if [ -z "$selected" ]
@@ -17,6 +17,7 @@ function fzf-browse
             echo "chromium"
             echo "gimp"
             echo "clipboard"
+            echo "nvim"
         end | fzf)
 
     switch "$mode"
@@ -27,7 +28,9 @@ function fzf-browse
         case chromium
             nohup chromium-browser "file://$selected" & 
         case gimp
-            nohup gimp "$selected" & 
+            nohup gimp "$selected" &
+        case nvim
+            nohup alacritty -e nvim "$selected" & 
         case clipboard
             cat "$selected" | wl-copy
     end
