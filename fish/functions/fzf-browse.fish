@@ -21,13 +21,13 @@ function fzf-browse
 
     switch "$mode"
         case open
-            nohup xdg-open "$selected" & 2> /dev/null > /dev/null
+            nohup xdg-open "$selected" & 
         case evince
-            nohup evince "$selected" & 2> /dev/null > /dev/null
+            nohup evince "$selected" & 
         case chromium
-            nohup chromium-browser "file://$selected" & 2> /dev/null > /dev/null
+            nohup chromium-browser "file://$selected" & 
         case gimp
-            nohup gimp "$selected" & 2> /dev/null > /dev/null
+            nohup gimp "$selected" & 
         case clipboard
             cat "$selected" | wl-copy
     end
