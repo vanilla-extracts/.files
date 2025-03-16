@@ -13,18 +13,21 @@ function fzf-browse
     set mode \
         (begin
             echo "evince"
+            echo "open"
             echo "chromium"
             echo "gimp"
             echo "clipboard"
         end | fzf)
 
     switch "$mode"
+        case open
+            nohup xdg-open "$selected" & 2> /dev/null > /dev/null
         case evince
-            nohup evince "$selected" &
+            nohup evince "$selected" & 2> /dev/null > /dev/null
         case chromium
-            nohup chromium-browser "file://$selected" &
+            nohup chromium-browser "file://$selected" & 2> /dev/null > /dev/null
         case gimp
-            nohup gimp "$selected" &
+            nohup gimp "$selected" & 2> /dev/null > /dev/null
         case clipboard
             cat "$selected" | wl-copy
     end
