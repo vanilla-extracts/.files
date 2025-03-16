@@ -259,6 +259,7 @@ spawn-at-startup "syncthing"
 spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "zen-browser" "--name" "first"
+spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
 spawn-at-startup "vesktop" "--ozone-platform=wayland" "--class" "second"
 spawn-at-startup "keepassxc" "-platform" "xcb"
 spawn-at-startup "thunderbird" "--name" "third"
@@ -350,6 +351,13 @@ window-rule {
     open-floating true
 }
 
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"# title="^KeePassXC - Browser Access Request$"
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"# title="^Unlock Database - KeePassXC$"
+
+    open-focused true
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -399,7 +407,7 @@ binds {
     Mod+S { focus-workspace "scratch";}
     Mod+B { focus-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
-    Mod+K { spawn "window_switcher.sh"; }
+    Mod+K { spawn "rofi" "-show" "window"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
     Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
