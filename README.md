@@ -4,6 +4,8 @@ Here you will find every config for everything I use and some things I *used* to
 use.
 
 ## Current config.
+On branch `current`
+
 The current configuration is the following:
 
 - WM: niri ([niri/config.kdl](niri/config.kdl))
@@ -38,6 +40,8 @@ The current configuration is the following:
 ## Old Configs
 These are old configs that I keep around in the git repo but don't use
 anymore.
+To see the old config go to the other branch, the branch `current` only shows
+the current setup.
 
 - WMs:
   - Hyprland ([hypr/hyprland.conf](hypr/hyprland.conf))
