@@ -3,6 +3,9 @@
 !fastfetch/
 !fish/*
 !fish/
+!fish/functions/fzf-browse.fish
+!fish/functions/fzf-pass.fish
+!fish/functions/
 !fusuma/
 !fusuma/*
 !fuzzel/
@@ -17,6 +20,8 @@
 !niri/*
 !nvim/
 !nvim/*
+!nvim/lua/*
+!nvim/lua
 !rofi/
 !rofi/*
 !sway/
