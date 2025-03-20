@@ -1,3 +1,0 @@
-#!/usr/bin/bash
-cd /home/charlotte/Documents/dev/lang_tool_docker
-docker compose up 

@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-we=$(LC_TIME=C date +%A)
-if [ "$we" = "Saturday" ] 
-then 
-	backup_to_nas > "/home/charlotte/.backup_logs/backup_$(date +%Y-%m-%d).log"
-else
-	echo "Oh no!"
-fi
