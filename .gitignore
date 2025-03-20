@@ -8,6 +8,8 @@
 !fish/functions/
 !fusuma/
 !fusuma/*
+!hypr/
+!hypr/hyprlock.conf
 !kanshi/
 !kanshi/*
 !niri/
