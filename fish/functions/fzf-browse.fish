@@ -2,6 +2,7 @@ function fzf-browse
     set selected \
         (begin
             fd -tf . $HOME/Documents
+            fd -tf . $HOME/.config
         end | fzf)
 
     if [ -z "$selected" ]

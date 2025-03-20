@@ -451,7 +451,6 @@ binds {
     Mod+Ctrl+Down  { move-window-down; }
     Mod+Ctrl+Up    { move-window-up; }
     Mod+Ctrl+Right { move-column-right; }
-
     Mod+E {spawn "nautilus";}
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
