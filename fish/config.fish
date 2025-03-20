@@ -6,10 +6,11 @@ for mode in default insert
 end
 
 source $HOME/credentials.fish
+source $HOME/.cargo/env.fish
+
 source $HOME/.config/fish/set.fish
 source $HOME/.config/fish/fish_aliases.fish
 source $HOME/.config/fish/env.fish
-source $HOME/.cargo/env.fish
 source $HOME/.config/fish/jump.fish
 source $HOME/.config/fish/pnpm.fish
 
