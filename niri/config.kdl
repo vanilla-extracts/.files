@@ -32,6 +32,7 @@ input {
         tap
         drag-lock
         scroll-method "two-finger"
+        accel-speed 0.1
     }
 
     mouse {
