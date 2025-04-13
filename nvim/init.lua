@@ -35,6 +35,21 @@ require("lazy").setup(
             }
         },
         {
+            "braxtons12/blame_line.nvim",
+            config = function()
+                require('blame_line').setup {
+                    show_in_visual = true,
+                    show_in_insert = true,
+                    template = "<author> • <author-time> • <summary>",
+                    date = {
+                        relative = true,
+                    },
+                    hl_group = "BlameLineNvim",
+                    delay = 0
+                }
+            end
+        },
+        {
             "chrisgrieser/nvim-lsp-endhints",
             event = "LspAttach",
             opts = {}, -- required, even if empty

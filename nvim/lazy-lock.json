@@ -4,6 +4,7 @@
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "barbar.nvim": { "branch": "master", "commit": "53b5a2f34b68875898f0531032fbf090e3952ad7" },
   "base16-nvim": { "branch": "master", "commit": "6ac181b5733518040a33017dde654059cd771b7c" },
+  "blame_line.nvim": { "branch": "master", "commit": "9b469d97b6cb50b12e5569ddc9d899513d0671b6" },
   "catppuccin": { "branch": "main", "commit": "4965db2d6155c25db4e8417465fc2703fdf4c2b7" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "99290b3ec1322070bcfb9e846450a46f6efa50f0" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
