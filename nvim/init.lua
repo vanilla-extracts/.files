@@ -45,7 +45,7 @@ require("lazy").setup(
                         relative = true,
                     },
                     hl_group = "BlameLineNvim",
-                    delay = 0
+                    delay = 5
                 }
             end
         },
