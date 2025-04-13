@@ -176,7 +176,7 @@ layout {
         // of the workspace, rather than relative to just the window itself.
         // To do that, set relative-to="workspace-view".
         //
-        inactive-gradient from="#EF7627" to="#A30262" angle=45 relative-to="workspace-view"
+         inactive-gradient from="#EF7627" to="#A30262" angle=45 relative-to="workspace-view"
     }
 
     // You can also add a border. It's similar to the focus ring, but always visible.
@@ -318,6 +318,12 @@ window-rule {
 }
 
 window-rule {
+    match app-id="zen"
+    open-maximized true
+    open-on-workspace "first"
+}
+
+window-rule {
     match app-id="vesktop"
     open-maximized true
     open-on-workspace "second"
@@ -363,7 +369,7 @@ window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -426,6 +432,7 @@ binds {
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
     Mod+K { spawn "rofi" "-show" "window" "-show-icons"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
+    Mod+Shift+P { spawn "hyprpicker" "-a"; }
     Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
@@ -642,5 +649,4 @@ binds {
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
-    Mod+Shift+P { power-off-monitors; }
 }
