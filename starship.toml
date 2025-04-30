@@ -87,7 +87,7 @@ format = '[ $symbol($version) ]($style)'
 style = 'bold yellow'
 
 [python]
-format = '[ $symbol($version) ]($style)'
+format = '[ $symbol($version) $virtualenv ]($style)'
 style = 'bright-green'
 
 [battery]
