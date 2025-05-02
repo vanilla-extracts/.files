@@ -2,6 +2,7 @@ theme = "catppuccin_macchiato"
 
 [editor]
 mouse = false
+bufferline = "always"
 
 [editor.cursor-shape]
 insert = "bar"
