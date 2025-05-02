@@ -1,0 +1,3 @@
+[[language]]
+name = "typst"
+formatter = { command = "typstyle", args = ["%{buffer_name}"] }
