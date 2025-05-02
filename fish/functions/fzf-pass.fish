@@ -10,7 +10,7 @@ function fzf-pass
         echo exiting...
         return
     end
-    
+
     pass "$selected" -c
 
 end

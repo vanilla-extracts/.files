@@ -18,22 +18,22 @@ function fzf-browse
             echo "chromium"
             echo "gimp"
             echo "clipboard"
-            echo "nvim"
+            echo "helix"
         end | fzf)
 
     switch "$mode"
         case open
-            nohup xdg-open "$selected" & 
+            nohup xdg-open "$selected" &
         case evince
-            nohup evince "$selected" & 
+            nohup evince "$selected" &
         case chromium
-            nohup chromium-browser "file://$selected" & 
+            nohup chromium-browser "file://$selected" &
         case gimp
             nohup gimp "$selected" &
         case nvim
-            nohup alacritty -e nvim "$selected" & 
+            nohup alacritty -e hx "$selected" &
         case clipboard
             cat "$selected" | wl-copy
     end
-    exit;
+    exit
 end
