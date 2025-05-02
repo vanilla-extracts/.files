@@ -1,3 +1,4 @@
 [[language]]
 name = "typst"
-formatter = { command = "typstyle", args = ["%{buffer_name}"] }
+auto-format = true
+formatter.command = "typstyle"
