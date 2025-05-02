@@ -30,7 +30,7 @@ function fzf-browse
             nohup chromium-browser "file://$selected" &
         case gimp
             nohup gimp "$selected" &
-        case nvim
+        case helix
             nohup alacritty -e hx "$selected" &
         case clipboard
             cat "$selected" | wl-copy
