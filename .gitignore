@@ -50,3 +50,5 @@
 !showbatt
 !window_switcher.sh
 !starship.toml
+!helix/*
+!helix/
