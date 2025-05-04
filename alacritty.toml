@@ -6,7 +6,7 @@ decorations = "None"
 
 [font]
 normal = {family = "Monaspace Xenon", style = "Regular"}
-size = 9
+size = 10
 
 [cursor]
 style = {shape = "Underline", blinking="Never"}

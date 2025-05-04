@@ -5,3 +5,4 @@ alias ll 'ls -l --git-ignore'
 alias ls 'eza -l --icons=always --group-directories-first --hyperlink'
 alias lz lazygit
 alias nvim hx
+alias ff fastfetch
