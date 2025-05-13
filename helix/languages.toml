@@ -1,4 +1,16 @@
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
 [[language]]
 name = "typst"
 auto-format = true
 formatter.command = "typstyle"
+language-servers = ["tinymist", "harper-ls"]
+
+[language-server.harper-ls.config.harper-ls]
+userDictPath = ""
+fileDictPath = ""
+diagnosticSeverity = "hint"
+isolateEnglish = false
+dialect = "British"
