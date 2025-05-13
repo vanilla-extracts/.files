@@ -248,6 +248,7 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "waybar"
+spawn-at-startup "wired"
 spawn-at-startup "nm-applet" "&"
 spawn-at-startup "swaybg" "-i" "/home/charlotte/Pictures/bg.png"
 spawn-at-startup "swaync"
