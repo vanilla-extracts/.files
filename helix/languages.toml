@@ -8,6 +8,10 @@ auto-format = true
 formatter.command = "typstyle"
 language-servers = ["tinymist", "harper-ls"]
 
+[[language]]
+name = "markdown"
+language-servers = ["markdown-oxide", "harper-ls"]
+
 [language-server.harper-ls.config.harper-ls]
 userDictPath = ""
 fileDictPath = ""
