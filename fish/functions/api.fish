@@ -11,5 +11,5 @@ function api
         return
     end
     echo $inventory
-    ansible-playbook --ask-become-pass -i $inventory $argv
+    ansible-playbook --vault-password-file $inventory/.credentials --ask-become-pass -i $inventory $argv
 end
