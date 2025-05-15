@@ -17,15 +17,4 @@ source $HOME/.config/fish/pnpm.fish
 jump shell fish | source
 starship init fish | source
 
-<<<<<<< HEAD
 ssh-add $HOME/.ssh/id_github_me 2>/dev/null
-=======
-ssh-add $HOME/.ssh/id_github_me 2> /dev/null
-
-# pnpm
-set -gx PNPM_HOME "/home/charlotte/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
->>>>>>> ddbd75a (niri: add brightness control)
