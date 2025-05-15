@@ -11,5 +11,5 @@ function api
         return
     end
     echo $inventory
-    ansible-playbook -i $inventory $argv
+    ansible-playbook --ask-become-pass -i $inventory $argv
 end
