@@ -12,6 +12,10 @@ language-servers = ["tinymist", "harper-ls"]
 name = "markdown"
 language-servers = ["markdown-oxide", "harper-ls"]
 
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer", "harper-ls"]
+
 [language-server.harper-ls.config.harper-ls]
 userDictPath = ""
 fileDictPath = ""
