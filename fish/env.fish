@@ -5,7 +5,9 @@ set DOCSOFF $HOME/Documents/docsoff
 set -x LD_LIBRARY_PATH $LD_LIBRARY_PATH:$HOME/.lib
 set DEV $HOME/Documents/dev
 set -x CONFIG $HOME/.config
-set -x EDITOR vim
-set -x VISUAL vim
-set -x CODE_EDITOR nvim
+set -x EDITOR hx
+set -x VISUAL hx
+set -x CODE_EDITOR hx
+set -x SUDO_EDITOR hx
+set -x SYSTEMD_EDITOR hx
 set -x LEDGER_FILE $DOCSOFF/budget/hledger.journal
