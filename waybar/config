@@ -1,14 +1,15 @@
 {
   "layer": "top", 
   "position": "top",
-  "modules-left": ["custom/logo", "clock", "niri/workspaces"],
-  "modules-center": [ "niri/window" ],
-  "modules-right": ["tray", "backlight", "bluetooth", "pulseaudio", "network",  "battery"],
+  "modules-left": ["custom/logo", "clock", "custom/remaining", "niri/workspaces"],
+  "modules-center": [ "custom/agenda", "tray" ],
+  "modules-right": ["backlight", "bluetooth", "pulseaudio", "network",  "disk", "temperature", "battery"],
   "reload_style_on_change":true,
 
   "custom/logo": {
     "format": " ",
-    "tooltip": false
+    "tooltip": false,
+    "class": "logo"
   },
 
   "niri/workspaces": {
@@ -195,6 +196,33 @@
     "interval": 1,
     "exec": "~/.config/waybar/scripts/powerdraw.sh",
     "return-type": "json"
+  },
+
+  "custom/tasks": {
+    "format": "{}",
+    "interval": 100,
+    "exec": "/usr/bin/nexttask",
+    "on-click": "alacritty --class floating -e fish -i -c calcure",
+    "return-type": "json",
+    "class": "tasks"
+  },
+
+      "custom/agenda": {
+        "format": "{}",
+        "exec": "nextmeeting --waybar",
+        "on-click": "alacritty --class floating -e fish -i -c calcure",
+        "interval": 59,
+        "return-type": "json",
+        "tooltip": "true",
+        "class": "agenda"
+    },
+
+  "custom/remaining": {
+    "format": "{}",
+    "exec": "generate_year",
+    "interval": 100,
+    "return-type": "text",
+    "class": "remaining"
   }
 
 }

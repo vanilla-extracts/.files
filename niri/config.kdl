@@ -434,6 +434,7 @@ binds {
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
     Mod+Shift+P { spawn "hyprpicker" "-a"; }
     Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
+    Mod+Shift+O { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "calcure"; }
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
     Super+Shift+L { spawn "hyprlock"; }

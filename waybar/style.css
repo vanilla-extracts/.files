@@ -1,15 +1,15 @@
 * {
-    border: none;
-    color: white;
-    font-size: 12px;
-    font-family: "Monaspace Radon", "Font Awesome 6 Free", "Font Awesome 6 Brands", "PT Sans";
-    min-height: 20px;
+  border: none;
+  color: white;
+  font-size: 12px;
+  font-family: "Monaspace Radon", "Font Awesome 6 Free", "Font Awesome 6 Brands", "PT Sans";
+  min-height: 20px;
 }
 
 window#waybar {
   background: transparent;
   margin: 5px;
- }
+}
 
 #custom-logo {
   padding: 0 10px;
@@ -35,29 +35,38 @@ window#waybar {
   background: #5C1630;
 }
 
+#custom-remaining {
+  text-align: center
+}
+
 #battery,
 #custom-clipboard,
 #custom-colorpicker,
 #custom-powerDraw,
-#bluetooth,
-#pulseaudio,
 #network,
 #disk,
 #memory,
-#backlight,
 #cpu,
 #temperature,
 #custom-weather,
 #idle_inhibitor,
 #jack,
-#tray,
 #window,
+#custom-tasks,
+#custom-agenda,
+#custom-remaining,
+#custom-logo,
 #clock {
   padding: 0 5px;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-right: 1px solid #71797E;
 }
+
 #pulseaudio {
   padding-top: 3px;
 }
+
 #workspaces {
   padding: 0 1px;
 }
@@ -71,34 +80,34 @@ window#waybar {
 
 
 
-#clock{
+#clock {
   color: #ffffff;
 }
 
 #battery.charging {
-    color: #ffffff;
-    background-color: #26A65B;
+  color: #ffffff;
+  background-color: #26A65B;
 }
 
 #battery.warning:not(.charging) {
-    background-color: #ffbe61;
-    color: black;
+  background-color: #ffbe61;
+  color: black;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }

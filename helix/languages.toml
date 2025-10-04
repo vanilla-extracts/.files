@@ -22,3 +22,16 @@ fileDictPath = ""
 diagnosticSeverity = "hint"
 isolateEnglish = false
 dialect = "British"
+
+[language-server.tailwindcss-ls]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+config = { userLanguages = { astro = "html", "*.astro" = "html" } }
+
+[[language]]
+name = "css"
+language-servers = ["tailwindcss-ls", "vscode-css-language-server" ]
+
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server", "tailwindcss-ls"]
