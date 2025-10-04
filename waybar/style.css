@@ -67,6 +67,19 @@ window#waybar {
   padding: 0 1px;
 }
 
+#tray,
+#backlight,
+#bluetooth {
+  padding: 0 5px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#pulseaudio {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
 #temperature.critical,
 #pulseaudio.muted {
   color: #3F0004;
