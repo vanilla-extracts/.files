@@ -35,10 +35,6 @@ window#waybar {
   background: #5C1630;
 }
 
-#custom-remaining {
-  text-align: center
-}
-
 #battery,
 #custom-clipboard,
 #custom-colorpicker,
