@@ -1,0 +1,34 @@
+[general]
+# A folder where vdirsyncer can store some metadata about each pair.
+status_path = "~/.vdirsyncer/status/"
+
+[pair personal]
+a = "personal_local"
+b = "personal_remote"
+conflict_resolution = "b wins"
+collections = null
+
+[storage personal_local]
+type = "singlefile"
+path = "~/.config/vdirsyncer/data/events_personal.ics"
+
+[storage personal_remote]
+type = "caldav"
+url = "https://cloud.faefox.dev/remote.php/dav/calendars/charlotte/personal/"
+username = "charlotte"
+
+[pair work]
+a = "work_local"
+b = "work_remote"
+conflict_resolution = "b wins"
+collections = null
+
+[storage work_local]
+type = "singlefile"
+path = "~/.config/vdirsyncer/data/events_work.ics"
+
+[storage work_remote]
+type = "caldav"
+url = "https://cloud.faefox.dev/remote.php/dav/calendars/charlotte/work/"
+username = "charlotte"
+
