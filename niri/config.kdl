@@ -249,6 +249,7 @@ layout {
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "waybar"
 spawn-at-startup "mako"
+spawn-at-startup "swayosd-server"
 spawn-at-startup "nm-applet" "&"
 spawn-at-startup "swaybg" "-i" "/home/charlotte/Pictures/bg.png"
 spawn-at-startup "swaync"
@@ -261,11 +262,9 @@ spawn-at-startup "zen-browser" "--name" "first"
 spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
 spawn-at-startup "vesktop" "--ozone-platform=wayland" "--class" "second"
 spawn-at-startup "keepassxc" "-platform" "xcb"
-spawn-at-startup "thunderbird" "--name" "third"
 spawn-at-startup "alacritty" "--class" "fourth"
+spawn-at-startup "alacritty" "--class" "third" "-e" "fish" "-c" "aerc"
 spawn-at-startup "alacritty" "--class" "btop" "-e" "bash" "-c" "btop"
-spawn-at-startup "alacritty" "--class" "scratch" "-e" "fish" "-c" "cd $DEV/journal && nvim ."
-spawn-at-startup "alacritty" "--class" "scratch" "-e" "bash" "-c" "cd $DEV/journal && make watch"
 environment {
     DISPLAY ":0"
 }
@@ -437,14 +436,21 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    // XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    // XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    // XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    // XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
 
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
+    // XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "s" "10%+"; }
+    // XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "s" "10%-"; }
 
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute        allow-when-locked=true { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "swayosd-client" "--input-volume" "mute-toggle"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn "swayosd-client" "--brightness" "raise"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "swayosd-client" "--brightness" "lower"; }
     Mod+C { close-window; }
 
     Mod+Left  { focus-column-left; }
