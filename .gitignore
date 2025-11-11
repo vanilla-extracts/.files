@@ -56,3 +56,8 @@
 !aerc/stylesets
 !aerc/aerc.conf
 !aerc/binds.conf
+!calcure/
+!calcure/config.ini
+!calcure/events.csv
+!calcure/info.log
+!calcure/tasks.csv
