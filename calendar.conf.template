@@ -1,0 +1,8 @@
+---:
+default:
+  caldav_url: https://cloud.faefox.dev/remote.php/dav/
+  caldav_user: charlotte
+  caldav_pass: 
+  calendar_url:
+    - personal
+    - tutoring

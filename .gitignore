@@ -43,3 +43,4 @@
 !harper-ls/*
 !vdirsyncer/
 !vdirsyncer/config.template
+!calendar.conf.template
