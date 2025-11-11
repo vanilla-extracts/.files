@@ -41,3 +41,5 @@
 !calcure/tasks.csv
 !harper-ls/
 !harper-ls/*
+!vdirsyncer/
+!vdirsyncer/config.template
