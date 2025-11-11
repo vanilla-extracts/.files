@@ -5,6 +5,9 @@ mouse = false
 bufferline = "always"
 true-color = true
 
+[editor.soft-wrap]
+enable = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
