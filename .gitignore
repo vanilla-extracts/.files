@@ -40,3 +40,5 @@
 !calcure/events.csv
 !calcure/info.log
 !calcure/tasks.csv
+!harper-ls/
+!harper-ls/*
