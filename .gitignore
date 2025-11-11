@@ -65,3 +65,5 @@
 !vdirsyncer/
 !vdirsyncer/config.template
 !calendar.conf.template
+!nextmeeting/
+!nextmeeting/config.toml.template

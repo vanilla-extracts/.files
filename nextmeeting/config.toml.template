@@ -1,0 +1,5 @@
+[nextmeeting]
+caldav_url = "https://cloud.faefox.dev/remote.php/dav/calendars/charlotte/personal"
+caldav_username = "charlotte"
+caldav_lookahead_hours = 720
+caldav_calendar="personal"
