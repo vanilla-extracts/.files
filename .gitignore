@@ -26,6 +26,7 @@
 !waybar/
 !alacritty.toml
 !backup_password
+!backup_to_restic
 !clean_dev
 !gnucash_fr
 !starship.toml
