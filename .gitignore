@@ -36,7 +36,7 @@
 !zellij/*
 !alacritty.toml
 !backup_password
-!backup_to_nas
+!backup_to_restic
 !check_and_backup_nas
 !clean_dev
 !cool_swaylock
