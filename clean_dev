@@ -35,3 +35,8 @@ directory_clean() {
 	cd /home/charlotte/Documents/dev/writing-website
 	directory_clean
 )
+
+(
+	cd /home/charlotte/Documents/dev/writing-website
+	directory_clean
+)
