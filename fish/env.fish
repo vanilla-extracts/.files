@@ -1,5 +1,9 @@
 set TYPST $HOME/.config/typst_templates
-set PATH $PATH:$HOME/.cargo/bin:$HOME/.local/bin:/usr/sbin:/opt/node/bin:/opt/z3-4.12.2-x64-glibc-2.31/bin/:$HOME/go/bin:/opt/localsend
+fish_add_path $HOME/.cargo/bin
+fish_add_path /opt/node/bin
+fish_add_path /opt/localsend
+fish_add_path $HOME/go/bin
+fish_add_path $HOME/.local/bin
 set -x TYPST_FONT_PATH /usr/share/fonts:$HOME/.fonts
 set DOCSOFF $HOME/Documents/docsoff
 set -x LD_LIBRARY_PATH
