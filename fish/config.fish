@@ -15,5 +15,3 @@ source $HOME/.config/fish/pnpm.fish
 
 jump shell fish | source
 starship init fish | source
-
-ssh-add $HOME/.ssh/id_github_me 2>/dev/null
