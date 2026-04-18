@@ -4,4 +4,4 @@ export RESTIC_PASSWORD="secrets"
 clean_dev
 restic backup --one-file-system --skip-if-unchanged --exclude-caches /
 restic backup $HOME --exclude $HOME/Documents/exclude --exclude-caches
-restic forget --keep-daily 7
+restic forget --keep-daily 7 --prune

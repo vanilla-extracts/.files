@@ -4,26 +4,20 @@
 #let letter(
   // The letter's sender, which is display at the top of the page.
   sender: none,
-
   // The letter's recipient, which is displayed close to the top.
   recipient: none,
-
   // The date, displayed to the right.
   date: none,
-
   // The subject line.
   subject: none,
-
+  font: "PT Sans",
   // The name with which the letter closes.
   name: none,
-
   //Post-scriptum
   ps: none,
   politesse: none,
   display_ps: true,
-
   lang: "en",
-
   // The letter's content.
   body,
   signature: none,
@@ -31,7 +25,7 @@
   // Configure page and text properties.
   set page(margin: (top: 2cm))
   set par(justify: true)
-  set text(font: "PT Sans")
+  set text(font: font)
 
   // Display sender at top of page. If there's no sender
   // add some hidden text to keep the same spacing.
@@ -44,7 +38,7 @@
   v(1.8cm)
 
   // Display recipient.
-  align(right,recipient)
+  align(right, recipient)
 
   v(0.5cm)
 
@@ -58,11 +52,11 @@
 
   v(2cm)
 
-  let object_verifier = lang=="fr"
+  let object_verifier = lang == "fr"
 
   // Add the subject line, if any.
   if subject != none {
-    let added_text = if object_verifier {[Objet:]} else {[Object:]}
+    let added_text = if object_verifier { [Objet:] } else { [Object:] }
     pad(right: 10%, [#strong(added_text) #strong(subject)])
   }
 
@@ -79,7 +73,7 @@
     v(1.25cm)
     if display_ps {
       emph([PS: #ps])
-    }else{
+    } else {
       emph(ps)
     }
   }
