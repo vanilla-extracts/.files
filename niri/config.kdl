@@ -105,7 +105,7 @@ output "eDP-1" {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 16
-
+    background-color "transparent"
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
     //   or right edge of the screen.
@@ -248,16 +248,17 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
-spawn-at-startup "waybar"
-spawn-at-startup "mako"
+// spawn-at-startup "waybar"
+// spawn-at-startup "mako"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "nm-applet" "&"
-spawn-at-startup "swaybg" "-i" "/home/charlotte/Pictures/bg.png"
-spawn-at-startup "swaync"
-spawn-at-startup "fusuma" "-d" 
-spawn-at-startup "kanshi"
+// spawn-at-startup "swaybg" "-i" "/home/charlotte/Pictures/bg.png"
+// spawn-at-startup "swaync"
+// spawn-at-startup "fusuma" "-d" 
+// spawn-at-startup "kanshi"
 spawn-at-startup "syncthing"
-spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
+// spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "zen-browser" "--name" "first"
 spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
@@ -301,7 +302,18 @@ animations {
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
+window-rule {
+  // Rounded corners for a modern look.
+  geometry-corner-radius 20
 
+  // Clips window contents to the rounded corner boundaries.
+  clip-to-geometry true
+}
+
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
 window-rule {
     // This regular expression is intentionally made as specific as possible,
     // since this is the default config, and we want no false positives.
@@ -314,6 +326,10 @@ window-rule {
     match app-id="first"
     open-maximized true
     open-on-workspace "first"
+
+    background-effect {
+        blur true
+    }
 }
 
 window-rule {
@@ -338,6 +354,47 @@ window-rule {
     match app-id="fourth"
     open-maximized true
     open-on-workspace "fourth"
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="^Alacritty$"
+
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id="^nheko$"
+
+    background-effect {
+        blur true
+    }
+}
+
+layer-rule {
+    match namespace="^launcher$"
+
+    background-effect {
+        blur true
+    }
+}
+// Set the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper*"
+  place-within-backdrop true
+}
+
+// Set transparent workspace background color so you see the backdrop at all times.
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
 }
 
 window-rule {
@@ -354,6 +411,10 @@ window-rule {
 window-rule {
     match app-id="floating"
     open-floating true
+
+    background-effect {
+        blur true
+    }
 }
 
 window-rule {
@@ -422,14 +483,15 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
-
+    Mod+Space { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return { spawn "alacritty"; }
-    Mod+D { spawn "rofi" "-show" "drun" "-show-icons"; }
-    Mod+S { focus-workspace "scratch";}
     Mod+B { focus-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
-    Mod+K { spawn "rofi" "-show" "window" "-show-icons"; }
+    
+    Mod+K { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+D { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
     Mod+Shift+P { spawn "hyprpicker" "-a"; }
     Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
