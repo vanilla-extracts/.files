@@ -348,6 +348,10 @@ window-rule {
     match app-id="third"
     open-maximized true
     open-on-workspace "third"
+
+    background-effect {
+        blur true
+    }
 }
 
 window-rule {
