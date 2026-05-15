@@ -109,6 +109,8 @@ spawn-at-startup "keepassxc" "-platform" "xcb"
 spawn-at-startup "alacritty" "--class" "fourth"
 spawn-at-startup "alacritty" "--class" "third" "-e" "fish" "-c" "aerc"
 spawn-at-startup "alacritty" "--class" "btop" "-e" "bash" "-c" "btop"
+spawn-at-startup "gajim"
+
 environment {
     DISPLAY ":0"
 }
@@ -185,6 +187,8 @@ window-rule {
     background-effect {
         blur true
     }
+
+    open-on-workspace "fifth"
 }
 
 layer-rule {
@@ -243,6 +247,12 @@ window-rule {
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
     block-out-from "screen-capture"
+}
+
+window-rule {
+    match app-id=r"gajim"
+    open-on-workspace "fifth"
+    open-maximized true
 }
 
 window-rule {
