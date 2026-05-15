@@ -15,8 +15,14 @@
   name: none,
   //Post-scriptum
   ps: none,
+  pps: none,
   politesse: none,
   display_ps: true,
+  display_pps: true,
+  head_size: 14pt,
+  text_size: 12pt,
+  ps_size: 10pt,
+  pps_size: 8pt,
   lang: "en",
   // The letter's content.
   body,
@@ -24,8 +30,10 @@
 ) = {
   // Configure page and text properties.
   set page(margin: (top: 2cm))
-  set par(justify: true)
-  set text(font: font)
+  set par(justify: true, first-line-indent: 1em)
+  set text(font: font, size: text_size)
+  show heading: set text(head_size)
+
 
   // Display sender at top of page. If there's no sender
   // add some hidden text to keep the same spacing.
@@ -72,9 +80,20 @@
   if ps != none {
     v(1.25cm)
     if display_ps {
+      set text(size: ps_size)
       emph([PS: #ps])
     } else {
       emph(ps)
+    }
+  }
+
+  if pps != none {
+    v(1.25cm)
+    if display_pps {
+      set text(size: pps_size)
+      emph([PPS: #pps])
+    } else {
+      emph(pps)
     }
   }
 }
