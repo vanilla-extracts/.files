@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+cd /home/charlotte
+pwd=/home/charlotte
+date=$(date +"%Y-%m-%d_%H:%M")
+tar -cvzf "/home/charlotte/Documents/docsoff/mail/mail_backup_${date}.tar.gz" mail mail-famille mail_archive

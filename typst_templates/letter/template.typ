@@ -1,19 +1,10 @@
-
-// This function gets your whole document as its `body`
-// and formats it as a simple letter.
 #let letter(
-  // The letter's sender, which is display at the top of the page.
   sender: none,
-  // The letter's recipient, which is displayed close to the top.
   recipient: none,
-  // The date, displayed to the right.
   date: none,
-  // The subject line.
   subject: none,
   font: "PT Sans",
-  // The name with which the letter closes.
   name: none,
-  //Post-scriptum
   ps: none,
   pps: none,
   politesse: none,
@@ -24,16 +15,20 @@
   ps_size: 10pt,
   pps_size: 8pt,
   lang: "en",
-  // The letter's content.
-  body,
   signature: none,
+  first-line-indent: none,
+  body,
 ) = {
-  // Configure page and text properties.
   set page(margin: (top: 2cm))
-  set par(justify: true, first-line-indent: 1em)
+  set par(justify: true, first-line-indent: if first-line-indent != none {
+    first-line-indent
+  } else {
+    0pt
+  })
+
+
   set text(font: font, size: text_size)
   show heading: set text(head_size)
-
 
   // Display sender at top of page. If there's no sender
   // add some hidden text to keep the same spacing.
