@@ -8,7 +8,6 @@ workspace "third"
 workspace "fourth"
 workspace "fifth"
 workspace "scratch"
-workspace "btop"
 workspace "keepassxc"
 input {
     keyboard {
@@ -109,9 +108,11 @@ spawn-at-startup "vesktop" "--ozone-platform=wayland" "--class" "second"
 spawn-at-startup "keepassxc" "-platform" "xcb"
 spawn-at-startup "alacritty" "--class" "fourth"
 spawn-at-startup "alacritty" "--class" "third" "-e" "fish" "-c" "aerc"
-spawn-at-startup "alacritty" "--class" "btop" "-e" "bash" "-c" "btop"
+spawn-at-startup "gajim"
+
 environment {
     DISPLAY ":0"
+    GTK_IM_MODULE "simple"
 }
 
 prefer-no-csd
@@ -219,12 +220,6 @@ window-rule {
 }
 
 window-rule {
-    match app-id="btop"
-    open-maximized true
-    open-on-workspace "btop"
-}
-
-window-rule {
     match app-id="floating"
     open-floating true
 
@@ -279,7 +274,6 @@ binds {
     Mod+Space { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
     Mod+S { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Mod+Return { spawn "alacritty"; }
-    Mod+B { focus-workspace "btop"; }
     Mod+Ctrl+S { focus-workspace "keepassxc"; }
     
     Mod+K { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
@@ -370,7 +364,6 @@ binds {
     Mod+apostrophe { focus-workspace "fourth"; }
     Mod+parenleft { focus-workspace "fifth"; }
     Mod+minus { focus-workspace "scratch"; }
-    Mod+egrave { focus-workspace "btop"; }
     Mod+underscore { focus-workspace "keepassxc"; }
     Mod+ccedilla { focus-workspace 9; }
     Mod+Shift+ampersand { move-column-to-workspace "first"; }
@@ -379,7 +372,6 @@ binds {
     Mod+Shift+apostrophe { move-column-to-workspace "fourth"; }
     Mod+Shift+parenleft { move-column-to-workspace "fifth"; }
     Mod+Shift+minus { move-column-to-workspace "scratch"; }
-    Mod+Shift+egrave { move-column-to-workspace "btop"; }
     Mod+Shift+underscore { move-column-to-workspace "keepassxc"; }
     Mod+Shift+ccedilla { move-column-to-workspace 9; }
     Mod+BracketLeft  { consume-or-expel-window-left; }
@@ -411,6 +403,4 @@ binds {
 
     Mod+Shift+M { quit; }
     Ctrl+Alt+Delete { quit; }
-
-    Mod+Shift+P { power-off-monitors; }
 }
