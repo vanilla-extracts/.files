@@ -53,6 +53,9 @@
 !helix/*
 !helix/
 !aerc/
+!alacritty/
+!alacritty/*
+!alacritty/alacritty.toml
 !aerc/stylesets
 !aerc/aerc.conf
 !aerc/binds.conf
