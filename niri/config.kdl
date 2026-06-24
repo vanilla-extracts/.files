@@ -280,7 +280,8 @@ binds {
     Mod+K { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+D { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+P { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-pass"; }
-    Mod+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
+    Mod+Shift+Y { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "fzf-browse";}
+    Mod+Y { spawn-sh "qs -c noctalia-shell ipc call launcher windows"; }
     Mod+Shift+O { spawn "alacritty" "--class" "floating" "-e" "fish" "-i" "-c" "calcure"; }
     Mod+Shift+Return { spawn "alacritty" "--class" "floating"; }
     Mod+Shift+N { spawn "sway-screenshot" "-m" "region" "--clipboard-only"; }
