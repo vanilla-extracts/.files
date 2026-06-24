@@ -1,5 +1,10 @@
+[general]
+import = [
+  "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
+]
+
 [window]
-blur = true
+blur = false
 title = "Terminal"
 dynamic_title = true
 decorations = "None"
@@ -13,3 +18,10 @@ style = {shape = "Underline", blinking="Never"}
 
 [mouse]
 hide_when_typing = true
+
+[colors]
+draw_bold_text_with_bright_colors = false
+cursor = {
+  text = "#55cdfc",
+  cursor = "#a96cf2"
+}
