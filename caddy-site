@@ -1,0 +1,195 @@
+#!/usr/bin/env bash
+# Source - https://stackoverflow.com/a/29754866
+# Posted by Robert Siemer, modified by community. See post 'Timeline' for change history
+# Retrieved 2026-08-09, License - CC BY-SA 4.0
+
+# Global vars, the global directories where caddy stores its stuff.
+CADDY_DIR="/etc/caddy"
+CADDY_ACTIVE_DIR="${CADDY_DIR}/Caddyfile.d"
+CADDY_INACTIVE_DIR="${CADDY_DIR}/CaddyfileInactive.d"
+
+# More safety, by turning some bugs into errors.
+set -o errexit -o pipefail -o noclobber -o nounset
+
+# ignore errexit with `&& true`
+getopt --test > /dev/null && true
+if [[ $? -ne 4 ]]; then
+    echo 'I’m sorry, `getopt --test` failed in this environment.'
+    exit 1
+fi
+
+# Options
+# Options without arguments are
+# - help (h), disable (d), version (v), list (ls,l).
+#
+# They are self explanatory.
+# Long options with arguments are
+# - inactive-dir (i): overrides default inactive directory.
+# - active-dir (a): overrides default active directory.
+# - output (o): overrides default symbolic link name.
+LONGOPTS=help,disable,version,list,ls,inactive-dir:,active-dir:,output:
+OPTIONS=h,d,v,l,i:,a:,o:
+
+# -temporarily store output to be able to check for errors
+# -activate quoting/enhanced mode (e.g. by writing out “--options”)
+# -pass arguments only via   -- "$@"   to separate them correctly
+# -if getopt fails, it complains itself to stderr
+PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") || exit 2
+# read getopt’s output this way to handle the quoting right:
+eval set -- "$PARSED"
+
+# Parsing and evaluation loop.
+disable=false version=false list=false inactive_dir="${CADDY_INACTIVE_DIR}" active_dir="${CADDY_ACTIVE_DIR}" new_name="-"
+while true; do
+    case "$1" in
+        -i|--inactive-dir)
+            inactive_dir="${2}"
+            shift 2
+            ;;
+        -a|--active-dir)
+            active_dir="${2}"
+            shift 2
+            ;;
+        -o|--output)
+            new_name="${2}"
+            shift 2
+            ;;
+        -v|--version)
+            version=true
+            shift
+            ;;
+        -d|--disable)
+            disable=true
+            shift
+            ;;
+        -l|--ls|--list)
+            list=true
+            shift
+            ;;
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "### HELP ###"
+            echo "--list (-l): list all available sites"
+            echo "--disable (-d): disable instead of enable a site"
+            echo "--output (-o): change the name for the link"
+            echo "############"
+            echo "enables (or disables) a caddy site"
+            echo "### HELP ###"
+            exit 3
+            ;;
+    esac
+done
+
+# VERSION
+# Version history
+# - v0.1 -- 2026-08-09 (17:00) -- C.A.T.
+# - v0.2 -- 2026-08-09 (22:00) -- C.A.T.
+if ${version}; then
+  echo "$0 v0.2 -- 2026-08-09 (22:00) -- C.A.T"
+  exit 0
+fi
+
+# LIST
+# Prints the list of sites.
+if ${list}; then
+
+  # Default directory to list is the inactive directory where all sites are stored.
+  # but with the disable option (--disable, -d) it lists all activated sites.
+  directory_to_list="${inactive_dir}"
+  if ${disable}; then
+    directory_to_list="${active_dir}"
+  fi
+
+  # Reads all files (non-hidden) and puts them in an array.
+  files=("${directory_to_list}"/*)
+
+  # Printing loop.
+  echo "################### LIST OF SITES ##################"
+  if ${disable}; then echo "ACTIVE SITES: ${active_dir}"; else echo "ALL SITES: ${inactive_dir}"; fi
+  echo ""
+  for file in "${files[@]}"; do
+
+    # Because it's better than having the whole pwd.
+    file=$(basename -- "${file}")
+
+    # If we aren't in disable mode, meaning we are listing all sites.
+    if (! ${disable}); then
+
+      # Link of the (potentially) symbolic link in the activated site directory.
+      activated_site="${active_dir}/${file}"
+      if [[ -L "${activated_site}" ]]; then
+
+        # The site is activated, adding a little (+) to mark it.
+        echo "> (+) ${file%.*}"
+      else
+
+        # The site isn't activated, it's inactive, marking it with a (-).
+        echo "> (-) ${file%.*}"
+      fi
+    else
+
+      # Technically it's always activated as it is in the active directory, so marking it with a (+).
+      echo "> (+) ${file%.*}"
+    fi
+  done
+  echo ""
+  echo "################### LIST OF SITES ##################"
+  exit 0
+fi
+
+# Verifying we have exactly one positional argument.
+if [[ $# -ne 1 ]]; then
+    echo "$0: A single site to activate is required"
+    exit 4
+fi
+
+# Verifying the inactive directory exists and is a directory, to catch mistakes while overriding default dirs.
+if [[ ! -d "${inactive_dir}"  ]]; then
+  echo "$0: The inactive directory you specified does not exist, or isn't a directory."
+  exit 5
+fi
+
+# Verifying the active directory exists and is a directory, to catch mistakes while overriding default dirs.
+if [[ ! -d "${active_dir}"  ]]; then
+  echo "$0: The active directory you specified does not exist, or isn't a directory."
+  exit 5
+fi
+
+# Sanitizing the input.
+input_sanitized=$(basename -- "${1}")
+input_sanitized="${input_sanitized%.*}"
+
+# If the output name hasn't been initialised, we intialise it as the inputfile name.
+if [[ "${new_name}" == "-" ]]; then
+  new_name="${input_sanitized}"
+fi
+
+# Defining input and output files, adding the right directories and file extension.
+input_file="${inactive_dir}/${input_sanitized}.caddyfile"
+output_file="${active_dir}/${new_name}.caddyfile"
+
+# If we are in disable mode, then the input file is in the active directory, but has the input file name.
+if ${disable}; then
+  input_file="${active_dir}/${input_sanitized}.caddyfile"
+fi
+
+# Verifying the input file exists and is a regular file.
+if [[ ! -f "${input_file}" ]]; then
+  echo "$0: Inputed site (${1}) does not exist, please check your input."
+  exit 5
+fi
+
+# If we are in disable mode, we delete the symbolic link (AND ONLY THE LINK!!), prints to restart caddy, and exits.
+# If we aren't we create the symbolic link, prints to restart caddy, and exits.
+if ${disable}; then  
+  rm "${input_file}"
+  echo "$0: Site ${1} has been disabled, please restart caddy."
+  exit 0 
+else
+  ln -s "${input_file}" "${output_file}"
+  echo "$0: Site ${1} has been enabled, please restart caddy."
+  exit 0
+fi

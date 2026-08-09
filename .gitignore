@@ -71,3 +71,4 @@
 !calendar.conf.template
 !nextmeeting/
 !nextmeeting/config.toml.template
+!caddy-site
