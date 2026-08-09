@@ -5,6 +5,7 @@
 !fish/
 !fish/functions/fzf-browse.fish
 !fish/functions/fzf-pass.fish
+!fish/functions/sshf.fish
 !fish/functions/
 !fusuma/
 !fusuma/*
