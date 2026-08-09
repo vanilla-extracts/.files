@@ -5,3 +5,5 @@ alias ll 'ls -l --git-ignore'
 alias ls 'eza -l --icons=always --group-directories-first --hyperlink'
 alias lz lazygit
 alias ff fastfetch
+alias vm 'sshf vm'
+alias ds9 'sshf ds9'

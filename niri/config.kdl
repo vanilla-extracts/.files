@@ -97,10 +97,8 @@ layout {
 spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "nm-applet" "&"
-// spawn-at-startup "kanshi"
 spawn-at-startup "syncthing"
-// spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
-spawn-at-startup "xwayland-satellite"
+spawn-at-startup "/opt/piavpn/bin/pia-client" "--quiet"
 spawn-at-startup "zen-browser" "--name" "first"
 spawn-at-startup "flatpak" "run" "org.localsend.localsend_app" "--hidden"
 spawn-at-startup "vesktop" "--ozone-platform=wayland" "--class" "second"
@@ -266,7 +264,13 @@ window-rule {
 
 window-rule {
     match is-active=true
-    opacity 0.9
+    opacity 0.85
+    draw-border-with-background false
+}
+
+window-rule {
+    match app-id=r"gimp"
+    opacity 1.0
     draw-border-with-background false
 }
 
@@ -396,9 +400,9 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    Home { screenshot; }
-    Ctrl+Home { screenshot-screen; }
-    Alt+Home { screenshot-window; }
+    Ctrl+K { screenshot; }
+    Home { screenshot-screen; }
+    Mod+Alt+S { screenshot-window; }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 

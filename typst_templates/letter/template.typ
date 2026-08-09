@@ -19,7 +19,7 @@
   first-line-indent: none,
   body,
 ) = {
-  set page(margin: (top: 2cm))
+  set page(margin: (top: 2cm), numbering: "1/1")
   set par(justify: true, first-line-indent: if first-line-indent != none {
     first-line-indent
   } else {

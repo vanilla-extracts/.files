@@ -7,7 +7,7 @@ SETUVAR _fisher_meaningful_2D_ooo_2F_sponge_files:\x7e/\x2econfig/fish/functions
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1edanhper/fish\x2dssh\x2dagent\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0\x1emeaningful\x2dooo/sponge
 SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR fish_user_paths:/home/charlotte/\x2elocal/bin\x1e/home/charlotte/go/bin\x1e/opt/localsend\x1e/home/charlotte/\x2ecargo/bin
+SETUVAR fish_user_paths:/opt/pp\x1e/home/charlotte/\x2elocal/bin\x1e/home/charlotte/go/bin\x1e/opt/localsend\x1e/home/charlotte/\x2ecargo/bin
 SETUVAR sponge_allow_previously_successful:true
 SETUVAR sponge_delay:2
 SETUVAR sponge_filters:sponge_filter_failed\x1esponge_filter_matched
